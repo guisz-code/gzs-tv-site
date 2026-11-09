@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://guisz-code.github.io/gzs-tv-site/sitemap.xml
