@@ -31,11 +31,13 @@
 
 ---
 
-## 🖼️ Página inicial
+## 🖼️ Preview do site
 
 <div align="center">
-  <img src="assets/tela-inicial.png" alt="Página inicial do site GSZ TV com menu Sobre, Recursos, Baixar, Galeria, Instalação e botão Baixar APK" width="800">
+  <img src="assets/site-homepage.png" alt="Página inicial do site GSZ TV — menu Sobre, Recursos, Baixar, Galeria, Instalação e botão Baixar APK" width="800">
 </div>
+
+> Esta é a captura da página oficial publicada em **GitHub Pages**.
 
 ---
 
