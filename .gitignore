@@ -26,3 +26,6 @@ package-lock.json
 coverage/
 dist/
 build/
+
+# Guias locais (não publicar no repositório)
+INSTRUÇÕES_GITHUB_PAGES.md
