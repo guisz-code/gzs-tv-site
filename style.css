@@ -365,11 +365,14 @@ img {
 
 /* ===== Sobre ===== */
 .sobre-grid {
-  max-width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(260px, 0.85fr);
+  gap: 1.25rem;
+  align-items: stretch;
 }
 
 .sobre-texto {
-  max-width: 980px;
+  max-width: none;
   padding: clamp(1.5rem, 4vw, 3rem);
   background: linear-gradient(125deg, rgba(15, 34, 55, 0.84), rgba(7, 15, 26, 0.78));
   border: 1px solid rgba(115, 161, 205, 0.16);
@@ -377,6 +380,85 @@ img {
   border-radius: 0 20px 20px 0;
   box-shadow: 0 20px 55px rgba(0, 0, 0, 0.18);
 }
+
+.sobre-ficha {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.35rem, 3vw, 2rem);
+  background: linear-gradient(155deg, rgba(13, 26, 42, 0.92), rgba(7, 13, 22, 0.88));
+  border: 1px solid rgba(115, 161, 205, 0.16);
+  border-radius: 20px;
+}
+
+.ficha-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ficha-sinal {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  color: #71bdff;
+  background: #168eff1c;
+  border: 1px solid #168eff38;
+  border-radius: 12px;
+}
+
+.ficha-cabecalho h3 { font-size: 1.05rem; }
+.ficha-cabecalho p { color: var(--cinza); font-size: 0.82rem; }
+
+.ficha-lista { margin: 0; }
+
+.ficha-lista > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ficha-lista dt {
+  color: var(--cinza);
+  font-size: 0.78rem;
+}
+
+.ficha-lista dd {
+  margin: 0;
+  color: var(--branco-suave);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.ficha-desenvolvedor {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: auto;
+  padding-top: 1.15rem;
+}
+
+.desenvolvedor-avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 42px;
+  height: 42px;
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: linear-gradient(140deg, #168eff, #0759df);
+  border-radius: 50%;
+  box-shadow: 0 5px 16px #0878eb3d;
+}
+
+.ficha-desenvolvedor > div { display: flex; flex-direction: column; gap: 0.12rem; }
+.desenvolvedor-legenda { color: var(--cinza); font-size: 0.74rem; }
+.ficha-desenvolvedor strong { color: var(--branco-suave); font-size: 0.88rem; }
+.ficha-desenvolvedor a { font-size: 0.82rem; }
 
 .sobre-texto h2 {
   margin-bottom: 1.15rem;
