@@ -287,11 +287,11 @@ img {
   z-index: 1;
 }
 
-/* Centraliza o botão dentro da coluna de download */
-.baixar-conteudo .btn-download {
-  margin-left: auto;
-  margin-right: auto;
-  display: inline-flex;
+/* Centraliza o botão horizontalmente no desktop */
+.texto-baixar .btn-download {
+  display: block;
+  width: max-content;
+  margin: 1.5rem auto 0 auto;
 }
 
 .btn-download::before {
@@ -327,11 +327,11 @@ img {
   z-index: 1;
 }
 
-/* Centraliza o botão dentro da coluna de download */
-.baixar-conteudo .btn-download {
-  margin-left: auto;
-  margin-right: auto;
-  display: inline-flex;
+/* Centraliza o botão horizontalmente no desktop */
+.texto-baixar .btn-download {
+  display: block;
+  width: max-content;
+  margin: 1.5rem auto 0 auto;
 }
 
 /* ===== Alternador minimalista de temas, acima da imagem ===== */
