@@ -101,22 +101,16 @@
       </div>
     </div>
     <div class="hero-image">
-      <img id="img-tema" src="assets/tema-gsz-edition.png" alt="Tela inicial do GSZ TV — tema GSZ EDITION" class="screenshot">
       <button id="btn-alternar-tema" class="btn-alternar-tema" aria-label="Alternar tema do launcher" onclick="alternarTema()">
         <div class="tema-toggle">
-          <div class="tema-icone tema-sol">☀</div>
+          <span class="tema-icone tema-sol" aria-hidden="true">☼</span>
           <div class="tema-divisor"></div>
-          <div class="tema-icone tema-lua">☾</div>
+          <span class="tema-icone tema-lua" aria-hidden="true">☾</span>
           <div class="tema-divisor"></div>
-          <div class="tema-logo">
-            <div class="logo-simbolo"></div>
-            <div class="logo-texto">
-              <strong>GSZ</strong><br>
-              <span>EDITION</span>
-            </div>
-          </div>
+          <span class="tema-marca" aria-hidden="true"><i></i><b>GSZ</b></span>
         </div>
       </button>
+      <img id="img-tema" src="assets/tema-gsz-edition.png" alt="Tela inicial do GSZ TV — tema GSZ EDITION" class="screenshot">
     </div>
   </header>
 
