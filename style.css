@@ -290,12 +290,17 @@ img {
 }
 
 .tema-icone {
+  display: grid;
+  place-items: center;
   width: 18px;
+  height: 22px;
   color: #f3f7fc;
   font-size: 1.15rem;
   line-height: 1;
   text-align: center;
   user-select: none;
+  opacity: 0.58;
+  transition: color 0.2s ease, opacity 0.2s ease, text-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .tema-sol { color: #f5f7fb; }
@@ -316,6 +321,8 @@ img {
   font-size: 0.65rem;
   line-height: 0.9;
   letter-spacing: 0.05em;
+  opacity: 0.58;
+  transition: opacity 0.2s ease, filter 0.2s ease, transform 0.2s ease;
 }
 
 .tema-marca i {
@@ -328,6 +335,33 @@ img {
 }
 
 .tema-marca b { font-weight: 800; }
+
+.tema-icone.ativo {
+  color: #16a5ff;
+  opacity: 1;
+  text-shadow: 0 0 9px #168effb3;
+  transform: scale(1.12);
+}
+
+.tema-marca.ativo {
+  opacity: 1;
+  filter: drop-shadow(0 0 5px #168effa6);
+  transform: scale(1.08);
+}
+
+.btn-alternar-tema.animando .tema-toggle {
+  animation: tema-troca 460ms ease;
+}
+
+@keyframes tema-troca {
+  0% { transform: scale(1); box-shadow: 0 2px 10px #0005, inset 0 1px #ffffff16; }
+  45% { transform: scale(1.08); box-shadow: 0 0 18px #168eff70, inset 0 1px #ffffff30; }
+  100% { transform: scale(1); box-shadow: 0 2px 10px #0005, inset 0 1px #ffffff16; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-alternar-tema.animando .tema-toggle { animation: none; }
+}
 
 /* ===== Sobre ===== */
 .sobre-grid {

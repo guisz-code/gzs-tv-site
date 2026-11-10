@@ -103,11 +103,11 @@
     <div class="hero-image">
       <button id="btn-alternar-tema" class="btn-alternar-tema" aria-label="Alternar tema do launcher" onclick="alternarTema()">
         <div class="tema-toggle">
-          <span class="tema-icone tema-sol" aria-hidden="true">☼</span>
+          <span class="tema-icone tema-sol" data-indicador-tema="branco" aria-hidden="true">☼</span>
           <div class="tema-divisor"></div>
-          <span class="tema-icone tema-lua" aria-hidden="true">☾</span>
+          <span class="tema-icone tema-lua" data-indicador-tema="escuro" aria-hidden="true">☾</span>
           <div class="tema-divisor"></div>
-          <span class="tema-marca" aria-hidden="true"><i></i><b>GSZ</b></span>
+          <span class="tema-marca ativo" data-indicador-tema="gsz-edition" aria-hidden="true"><i></i><b>GSZ</b></span>
         </div>
       </button>
       <img id="img-tema" src="assets/tema-gsz-edition.png" alt="Tela inicial do GSZ TV — tema GSZ EDITION" class="screenshot">
@@ -306,12 +306,26 @@ adb install -r GSZTV.apk</code></pre>
     };
 
     const temas = ['gsz-edition', 'branco', 'escuro'];
+    const nomesTema = {
+      'gsz-edition': 'GSZ Edition',
+      'branco': 'Branco',
+      'escuro': 'Escuro'
+    };
     let temaAtual = 0;
 
     function alternarTema() {
       temaAtual = (temaAtual + 1) % temas.length;
       const tema = temas[temaAtual];
       const img = document.getElementById('img-tema');
+      const botao = document.getElementById('btn-alternar-tema');
+
+      document.querySelectorAll('[data-indicador-tema]').forEach(indicador => {
+        indicador.classList.toggle('ativo', indicador.dataset.indicadorTema === tema);
+      });
+      botao.setAttribute('aria-label', 'Tema atual: ' + nomesTema[tema] + '. Clique para alternar o tema');
+      botao.classList.remove('animando');
+      void botao.offsetWidth;
+      botao.classList.add('animando');
 
       img.style.opacity = '0';
 
@@ -321,6 +335,10 @@ adb install -r GSZTV.apk</code></pre>
         img.style.opacity = '1';
       }, 180);
     }
+
+    document.getElementById('btn-alternar-tema').addEventListener('animationend', event => {
+      if (event.target === event.currentTarget) event.currentTarget.classList.remove('animando');
+    });
   </script>
 
 </body>
