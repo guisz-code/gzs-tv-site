@@ -248,18 +248,25 @@ img {
 }
 
 /* ===== Seletor de tema (hero) ===== */
+.hero-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .tema-selector {
   position: absolute;
-  bottom: 1.5rem;
+  bottom: -2.2rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 0.6rem;
-  background: rgba(5, 5, 7, 0.7);
-  backdrop-filter: blur(8px);
-  padding: 0.5rem 0.75rem;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(6px);
+  padding: 0.45rem 0.9rem;
   border-radius: 999px;
-  border: 1px solid var(--cor-borda);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   z-index: 10;
 }
 
@@ -267,16 +274,17 @@ img {
   background: transparent;
   color: var(--branco-suave);
   border: none;
-  padding: 0.45rem 1rem;
+  padding: 0.4rem 0.95rem;
   border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 500;
   cursor: pointer;
   transition: var(--transicao);
 }
 
 .btn-tema:hover {
   color: var(--branco);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .btn-tema.ativo {
@@ -287,12 +295,13 @@ img {
 
 @media (max-width: 900px) {
   .tema-selector {
-    bottom: 1rem;
-    padding: 0.4rem 0.6rem;
+    bottom: -1.8rem;
+    padding: 0.4rem 0.7rem;
+    gap: 0.4rem;
   }
   .btn-tema {
-    padding: 0.4rem 0.85rem;
-    font-size: 0.8rem;
+    padding: 0.35rem 0.8rem;
+    font-size: 0.75rem;
   }
 }
 
