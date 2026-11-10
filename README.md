@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="assets/logo-gsz-tv.png" alt="Logo GSZ TV" width="80">
+  <img src="assets/img/logo-gsz-tv.png" alt="Logo GSZ TV" width="80">
   <br>
   GSZ TV — Site Oficial
   <br>
@@ -34,7 +34,7 @@
 ## 🖼️ Preview do site
 
 <div align="center">
-  <img src="assets/site-homepage-v2.png" alt="Página inicial do site GSZ TV — menu Sobre, Recursos, Baixar, Galeria, Instalação e botão Baixar APK" width="800">
+  <img src="assets/img/site-homepage-v2.png" alt="Página inicial do site GSZ TV — menu Sobre, Recursos, Baixar, Galeria, Instalação e botão Baixar APK" width="800">
 </div>
 
 

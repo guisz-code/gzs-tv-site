@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://guisz-code.github.io/gzs-tv-site/">
   <meta property="og:title" content="GSZ TV — Launcher grátis para Android TV">
   <meta property="og:description" content="Launcher gratuito, leve e sem anúncios para Android TV, Google TV e projetores Android. Baixe o APK oficial.">
-  <meta property="og:image" content="https://guisz-code.github.io/gzs-tv-site/assets/tela-inicial.png">
+  <meta property="og:image" content="https://guisz-code.github.io/gzs-tv-site/assets/img/tela-inicial.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="GSZ TV">
@@ -25,7 +25,7 @@
   <meta name="twitter:url" content="https://guisz-code.github.io/gzs-tv-site/">
   <meta name="twitter:title" content="GSZ TV — Launcher grátis para Android TV">
   <meta name="twitter:description" content="Launcher gratuito, leve e sem anúncios para Android TV, Google TV e projetores Android.">
-  <meta name="twitter:image" content="https://guisz-code.github.io/gzs-tv-site/assets/tela-inicial.png">
+  <meta name="twitter:image" content="https://guisz-code.github.io/gzs-tv-site/assets/img/tela-inicial.png">
 
   <title>GSZ TV: Launcher grátis para Android TV e projetores</title>
   <script type="application/ld+json">
@@ -47,7 +47,7 @@
         "operatingSystem": "Android 8.0 ou superior",
         "description": "Launcher gratuito e sem anúncios para Android TV, Google TV e projetores Android, com navegação otimizada para controle remoto.",
         "url": "https://guisz-code.github.io/gzs-tv-site/",
-        "image": "https://guisz-code.github.io/gzs-tv-site/assets/tela-inicial.png",
+        "image": "https://guisz-code.github.io/gzs-tv-site/assets/img/tela-inicial.png",
         "downloadUrl": "https://github.com/guisz-code/GSZ-TV/releases/latest",
         "author": {
           "@type": "Person",
@@ -63,9 +63,9 @@
     ]
   }
   </script>
-  <link rel="preload" as="image" href="assets/logo-gsz-tv.png">
-  <link rel="preload" as="image" href="assets/tela-inicial.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="preload" as="image" href="assets/img/logo-gsz-tv.png">
+  <link rel="preload" as="image" href="assets/img/tema-gsz-edition.png">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
@@ -73,7 +73,7 @@
   <nav class="navbar">
     <div class="nav-container">
       <a href="#" class="logo-link" aria-label="GSZ TV">
-        <img src="assets/logo-gsz-tv.png" alt="" class="logo"><span>GSZ TV</span>
+        <img src="assets/img/logo-gsz-tv.png" alt="" class="logo"><span>GSZ TV</span>
       </a>
       <ul class="nav-links">
         <li><a href="#sobre">Sobre</a></li>
@@ -101,7 +101,7 @@
       </div>
     </div>
     <div class="hero-image">
-      <button id="btn-alternar-tema" class="btn-alternar-tema" aria-label="Alternar tema do launcher" onclick="alternarTema()">
+      <button id="btn-alternar-tema" class="btn-alternar-tema" type="button" aria-label="Alternar tema do launcher">
         <div class="tema-toggle">
           <span class="tema-icone tema-sol" data-indicador-tema="branco" aria-hidden="true">☼</span>
           <div class="tema-divisor"></div>
@@ -110,7 +110,7 @@
           <span class="tema-marca ativo" data-indicador-tema="gsz-edition" aria-hidden="true"><i></i><b>GSZ</b></span>
         </div>
       </button>
-      <img id="img-tema" src="assets/tema-gsz-edition.png" alt="Tela inicial do GSZ TV — tema GSZ EDITION" class="screenshot">
+      <img id="img-tema" src="assets/img/tema-gsz-edition.png" alt="Tela inicial do GSZ TV — tema GSZ EDITION" class="screenshot">
     </div>
   </header>
 
@@ -299,7 +299,7 @@ adb install -r GSZTV.apk</code></pre>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-marca">
-          <img src="assets/logo-gsz-tv.png" alt="Logo GSZ TV" class="logo-footer">
+          <img src="assets/img/logo-gsz-tv.png" alt="Logo GSZ TV" class="logo-footer">
           <p>Launcher gratuito, leve e sem anúncios para Android TV, Google TV e projetores Android.</p>
         </div>
         <div class="footer-links">
@@ -322,82 +322,7 @@ adb install -r GSZTV.apk</code></pre>
     </div>
   </footer>
 
-  <script>
-    // Busca a versão mais recente e o avatar público diretamente do GitHub.
-    async function carregarDadosGitHub() {
-      const versao = document.getElementById('versao-launcher');
-      const avatar = document.getElementById('avatar-github');
-      avatar.addEventListener('error', () => { avatar.hidden = true; }, { once: true });
-
-      try {
-        const resposta = await fetch('https://api.github.com/repos/guisz-code/GSZ-TV/releases/latest', { cache: 'no-store' });
-        if (resposta.ok) {
-          const release = await resposta.json();
-          if (release.tag_name) {
-            versao.textContent = release.tag_name;
-            versao.href = release.html_url;
-            versao.setAttribute('aria-label', 'Ver versão ' + release.tag_name + ' no GitHub');
-          }
-        }
-      } catch (erro) {
-        // Mantém o link para a página de releases como alternativa.
-      }
-
-      try {
-        const resposta = await fetch('https://api.github.com/users/guisz-code', { cache: 'no-store' });
-        if (resposta.ok) {
-          const perfil = await resposta.json();
-          if (perfil.avatar_url) avatar.src = perfil.avatar_url + '&size=96';
-        }
-      } catch (erro) {
-        // A URL pública do avatar definida no HTML continua como alternativa.
-      }
-    }
-
-    carregarDadosGitHub();
-
-    // Troca de tema do launcher na página inicial (ciclo ao clicar no botão)
-    const imagensTema = {
-      'gsz-edition': 'assets/tema-gsz-edition.png',
-      'branco': 'assets/tema-branco.png',
-      'escuro': 'assets/tema-escuro.png'
-    };
-
-    const temas = ['gsz-edition', 'branco', 'escuro'];
-    const nomesTema = {
-      'gsz-edition': 'GSZ Edition',
-      'branco': 'Branco',
-      'escuro': 'Escuro'
-    };
-    let temaAtual = 0;
-
-    function alternarTema() {
-      temaAtual = (temaAtual + 1) % temas.length;
-      const tema = temas[temaAtual];
-      const img = document.getElementById('img-tema');
-      const botao = document.getElementById('btn-alternar-tema');
-
-      document.querySelectorAll('[data-indicador-tema]').forEach(indicador => {
-        indicador.classList.toggle('ativo', indicador.dataset.indicadorTema === tema);
-      });
-      botao.setAttribute('aria-label', 'Tema atual: ' + nomesTema[tema] + '. Clique para alternar o tema');
-      botao.classList.remove('animando');
-      void botao.offsetWidth;
-      botao.classList.add('animando');
-
-      img.style.opacity = '0';
-
-      setTimeout(() => {
-        img.src = imagensTema[tema];
-        img.alt = 'Tela inicial do GSZ TV — tema ' + tema;
-        img.style.opacity = '1';
-      }, 180);
-    }
-
-    document.getElementById('btn-alternar-tema').addEventListener('animationend', event => {
-      if (event.target === event.currentTarget) event.currentTarget.classList.remove('animando');
-    });
-  </script>
+  <script src="assets/js/main.js"></script>
 
 </body>
 </html>
