@@ -37,7 +37,7 @@
   <img src="assets/site-homepage.png" alt="Página inicial do site GSZ TV — menu Sobre, Recursos, Baixar, Galeria, Instalação e botão Baixar APK" width="800">
 </div>
 
-> Esta é a captura da página oficial publicada em **GitHub Pages**.
+> Prévia do visual atual do site. Para atualizar esta imagem após alterações, capture a página inicial e substitua `assets/site-homepage.png`.
 
 ---
 

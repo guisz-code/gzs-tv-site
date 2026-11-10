@@ -4,17 +4,17 @@
    ============================================================ */
 
 :root {
-  --cor-fundo: #050507;
-  --cor-fundo-secao: #0a0a0d;
-  --cor-card: #111116;
-  --cor-borda: #1f1f28;
-  --azul-neon: #00f3ff;
-  --azul-neon-suave: rgba(0, 243, 255, 0.15);
-  --azul-neon-escuro: #0099b2;
+  --cor-fundo: #040a12;
+  --cor-fundo-secao: #07111e;
+  --cor-card: #0d1928;
+  --cor-borda: #223349;
+  --azul-neon: #55baff;
+  --azul-neon-suave: rgba(35, 145, 255, 0.15);
+  --azul-neon-escuro: #0878eb;
   --branco: #ffffff;
   --branco-suave: #e5e5ea;
-  --cinza: #9aa0a8;
-  --sombra-neon: 0 0 18px rgba(0, 243, 255, 0.35);
+  --cinza: #a6b5c8;
+  --sombra-neon: 0 0 18px rgba(35, 145, 255, 0.35);
   --transicao: all 0.35s ease;
 }
 
@@ -56,7 +56,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(5, 5, 7, 0.85);
+  background: rgba(4, 10, 18, 0.88);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--cor-borda);
 }
@@ -121,7 +121,7 @@ img {
   padding: 0.45rem 1rem;
   background: var(--azul-neon-suave);
   color: var(--azul-neon);
-  border: 1px solid rgba(0, 243, 255, 0.35);
+  border: 1px solid rgba(35, 145, 255, 0.35);
   border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 700;
@@ -171,7 +171,7 @@ img {
 .screenshot:hover {
   transform: translateY(-4px);
   border-color: var(--azul-neon);
-  box-shadow: 0 0 30px rgba(0, 243, 255, 0.55), 0 20px 50px rgba(0,0,0,0.6);
+  box-shadow: 0 0 30px rgba(35, 145, 255, 0.55), 0 20px 50px rgba(0,0,0,0.6);
 }
 
 /* ===== Seções gerais ===== */
@@ -227,7 +227,7 @@ img {
 
 .btn.neon:hover {
   background: #33fbff;
-  box-shadow: 0 0 30px rgba(0, 243, 255, 0.65);
+  box-shadow: 0 0 30px rgba(35, 145, 255, 0.65);
   transform: translateY(-2px);
 }
 
@@ -363,7 +363,7 @@ img {
 
 .galeria-item:hover {
   border-color: var(--azul-neon);
-  background: rgba(0, 243, 255, 0.05);
+  background: rgba(35, 145, 255, 0.05);
 }
 
 .placeholder-conteudo {
@@ -581,3 +581,29 @@ img {
     width: 100%;
   }
 }
+/* Acabamento inspirado nos tons azuis da tela inicial do GSZ TV. */
+body { background: radial-gradient(ellipse at 80% 8%, #0b2947 0, transparent 34%), var(--cor-fundo); }
+html { scroll-padding-top: 150px; }
+.hero { gap: 2.5rem; padding-top: 6rem; padding-bottom: 6rem; }
+.hero h1 { font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -0.055em; }
+.hero h1 .dot { color: #168eff; }
+.lead { color: #bdcbdc; line-height: 1.8; }
+.logo { filter: none; border-radius: 12px; }
+.logo-link { gap: 12px; color: white; font-size: 1.15rem; font-weight: 750; letter-spacing: -.03em; }
+.btn { border-radius: 12px; }
+.btn.neon { background: linear-gradient(135deg, #008aff, #0759df); color: #fff; box-shadow: 0 8px 24px #0066ee30, inset 0 1px #ffffff30; }
+.btn.neon:hover { background: linear-gradient(135deg, #219aff, #1768ed); box-shadow: 0 10px 30px #0066ee45; }
+.btn.outline { background: #ffffff05; border-color: #34465c; }
+.screenshot { border: 1px solid #3a5976; border-radius: 18px; box-shadow: 0 24px 60px #0008, 0 0 45px #007aff12; }
+.screenshot:hover { box-shadow: 0 24px 60px #0008, 0 0 45px #007aff25; }
+.card { background: linear-gradient(145deg, #122237, #0a1421); border-radius: 18px; }
+.card:hover { box-shadow: 0 14px 35px #0004; border-color: #347cb5; }
+.bg-escuro { border-block: 1px solid #ffffff06; }
+.titulo-secao, .sobre-texto h2 { letter-spacing: -.035em; }
+.numero-passo { background: #0878eb; color: white; }
+.galeria-item { border-width: 1px; }
+a:focus-visible { outline: 3px solid #79caff; outline-offset: 5px; }
+.bloco-codigo code { overflow-wrap: anywhere; }
+@media (max-width: 900px) { .hero { padding-block: 3rem 4rem; } .hero-image { order: 0; margin-bottom: 0; } }
+@media (max-width: 520px) { .logo-link { justify-content: center; } .nav-links { gap: .6rem 1rem; } .nav-links a { font-size: .85rem; } .nav-container { padding-block: .8rem; gap: .7rem; } .hero { padding-top: 2.5rem; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
