@@ -259,14 +259,14 @@ img {
   border: none;
   border-radius: 14px;
   background: var(--azul-neon);
-  color: #000;
+  color: #fff;
   font-weight: 700;
   font-size: 1.05rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor: pointer;
   overflow: hidden;
-  box-shadow: var(--sombra-neon), inset 0 0 0 1px rgba(255,255,255,0.5);
+  box-shadow: var(--sombra-neon), inset 0 0 0 1px rgba(255,255,255,0.3);
   transition: var(--transicao);
   z-index: 1;
 }
