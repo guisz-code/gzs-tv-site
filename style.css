@@ -247,93 +247,6 @@ img {
   font-size: 1.1rem;
 }
 
-/* ===== Botão de download assimétrico ===== */
-.btn-download {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 0.85rem 1.5rem;
-  margin-top: 1.5rem;
-  border: none;
-  border-radius: 8px;
-  background: #0759df;
-  color: #fff;
-  font-weight: 600;
-  font-size: 1rem;
-  letter-spacing: normal;
-  text-transform: none;
-  cursor: pointer;
-  box-shadow: 0 8px 24px #0066ee30, inset 0 1px #ffffff30;
-  transition: var(--transicao);
-  z-index: 1;
-  justify-self: center;
-}
-
-.btn-download:hover {
-  background: #1768ed;
-  box-shadow: 0 10px 30px #0066ee45;
-  transform: translateY(-2px);
-}
-
-.icone-baixa {
-  font-size: 1.05rem;
-  display: inline-flex;
-}
-
-.texto-baixa {
-  position: relative;
-  z-index: 1;
-}
-
-/* Centraliza o botão horizontalmente no desktop */
-.texto-baixar .btn-download {
-  display: block;
-  width: max-content;
-  margin: 1.5rem auto 0 auto;
-}
-
-.btn-download::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 14px;
-  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.15), transparent);
-  opacity: 0;
-  transition: opacity 0.35s ease, transform 0.35s ease;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.btn-download:hover {
-  filter: brightness(1.15);
-  box-shadow: 0 0 30px rgba(0, 243, 255, 0.7), inset 0 0 0 1px rgba(255,255,255,0.7);
-  transform: translateY(-2px);
-}
-
-.btn-download:hover::before {
-  opacity: 1;
-  transform: translateX(100%);
-}
-
-.icone-baixa {
-  font-size: 1.2rem;
-  display: inline-flex;
-}
-
-.texto-baixa {
-  position: relative;
-  z-index: 1;
-}
-
-/* Centraliza o botão horizontalmente no desktop */
-.texto-baixar .btn-download {
-  display: block;
-  width: max-content;
-  margin: 1.5rem auto 0 auto;
-}
-
 /* ===== Alternador minimalista de temas, acima da imagem ===== */
 .hero-image {
   display: flex;
@@ -711,7 +624,26 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: start;
+  align-items: stretch;
+}
+
+.baixar-cta {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  text-align: center;
+}
+
+.baixar-cta .btn {
+  white-space: nowrap;
+}
+
+.baixar-cta .nota {
+  max-width: 320px;
+  margin: 0;
 }
 
 .texto-baixar h3 {
