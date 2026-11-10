@@ -844,6 +844,8 @@ html { scroll-padding-top: 150px; }
 .hero { gap: 2.5rem; padding-top: 6rem; padding-bottom: 6rem; }
 .hero h1 { font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -0.055em; }
 .hero h1 .dot { color: #168eff; }
+.hero-title { line-height: 0; }
+.hero-wordmark { width: min(100%, 520px); height: auto; filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.22)); }
 .lead { color: #bdcbdc; line-height: 1.8; }
 .logo { filter: none; border-radius: 12px; }
 .logo-link { gap: 12px; color: white; font-size: 1.15rem; font-weight: 750; letter-spacing: -.03em; }
