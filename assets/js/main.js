@@ -72,8 +72,66 @@ function alternarTema() {
   }, 180);
 }
 
+// Ativa controles de navegação para TVs e navegadores de Smart TV.
+function detectarTV() {
+  const agente = navigator.userAgent || '';
+  return /Android TV|Google TV|Smart-TV|SmartTV|Tizen|Web0S|webOS|BRAVIA|AFT[A-Z0-9]*|Fire TV|NetCast|HbbTV|Viera|Roku|Philips.*TV/i.test(agente);
+}
+
+function navegarComSetas(event) {
+  const direcoes = {
+    ArrowUp: 'up', ArrowDown: 'down', ArrowLeft: 'left', ArrowRight: 'right',
+    DPAD_UP: 'up', DPAD_DOWN: 'down', DPAD_LEFT: 'left', DPAD_RIGHT: 'right'
+  };
+  const direcao = direcoes[event.key] || ({ 37: 'left', 38: 'up', 39: 'right', 40: 'down' })[event.keyCode];
+  if (!direcao || event.altKey || event.ctrlKey || event.metaKey) return;
+
+  const ativo = document.activeElement;
+  if (ativo && (ativo.matches('input, textarea, select, [contenteditable="true"]') || ativo.isContentEditable)) return;
+
+  const focaveis = [...document.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+    .filter(elemento => elemento.getClientRects().length > 0 && getComputedStyle(elemento).visibility !== 'hidden');
+  if (!focaveis.length) return;
+
+  const origem = ativo && focaveis.includes(ativo) ? ativo.getBoundingClientRect() : null;
+  let candidatos;
+
+  if (!origem) {
+    candidatos = focaveis.map(elemento => ({ elemento, rect: elemento.getBoundingClientRect() }));
+    candidatos.sort((a, b) => {
+      const score = ({ up: r => -r.top, down: r => r.top, left: r => -r.left, right: r => r.left })[direcao];
+      return score(a.rect) - score(b.rect);
+    });
+  } else {
+    const ox = origem.left + origem.width / 2;
+    const oy = origem.top + origem.height / 2;
+    candidatos = focaveis.filter(elemento => elemento !== ativo).map(elemento => {
+      const rect = elemento.getBoundingClientRect();
+      const dx = rect.left + rect.width / 2 - ox;
+      const dy = rect.top + rect.height / 2 - oy;
+      const principal = direcao === 'right' ? dx : direcao === 'left' ? -dx : direcao === 'down' ? dy : -dy;
+      const cruzado = direcao === 'left' || direcao === 'right' ? Math.abs(dy) : Math.abs(dx);
+      return { elemento, principal, cruzado, score: principal + cruzado * 1.7 };
+    }).filter(item => item.principal > 4).sort((a, b) => a.score - b.score);
+  }
+
+  const proximo = candidatos[0] && candidatos[0].elemento;
+  if (!proximo) return;
+
+  event.preventDefault();
+  proximo.focus({ preventScroll: true });
+  proximo.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+}
+
 function iniciarPagina() {
   carregarDadosGitHub();
+
+  if (detectarTV()) {
+    document.documentElement.classList.add('tv-mode');
+    const dicaTV = document.getElementById('tv-navigation-hint');
+    if (dicaTV) dicaTV.hidden = false;
+    document.addEventListener('keydown', navegarComSetas);
+  }
 
   const botaoTema = document.getElementById('btn-alternar-tema');
   if (!botaoTema) return;

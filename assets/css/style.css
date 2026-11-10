@@ -864,3 +864,39 @@ a:focus-visible { outline: 3px solid #79caff; outline-offset: 5px; }
 @media (max-width: 900px) { .hero { padding-block: 3rem 4rem; } .hero-image { order: 0; margin-bottom: 0; } }
 @media (max-width: 520px) { .logo-link { justify-content: center; } .nav-links { gap: .6rem 1rem; } .nav-links a { font-size: .85rem; } .nav-container { padding-block: .8rem; gap: .7rem; } .hero { padding-top: 2.5rem; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+
+/* ===== Navegação para Android TV e Smart TVs ===== */
+.tv-mode .nav-links { gap: clamp(1.1rem, 2vw, 2rem); }
+.tv-mode .nav-links a { display: inline-flex; align-items: center; min-height: 52px; font-size: 1.05rem; }
+.tv-mode .btn,
+.tv-mode .btn-alternar-tema,
+.tv-mode .logo-link { min-height: 56px; }
+.tv-mode .btn { padding-inline: 1.75rem; }
+
+.tv-mode :focus-visible {
+  position: relative;
+  z-index: 120;
+  outline: 4px solid #ffffff;
+  outline-offset: 5px;
+  box-shadow: 0 0 0 9px rgba(22, 142, 255, 0.82), 0 0 28px rgba(22, 142, 255, 0.75);
+  transform: scale(1.04);
+}
+
+.tv-navigation-hint {
+  position: fixed;
+  z-index: 500;
+  right: 50%;
+  bottom: 1.25rem;
+  transform: translateX(50%);
+  padding: 0.75rem 1.25rem;
+  color: #ffffff;
+  background: rgba(5, 12, 22, 0.94);
+  border: 1px solid rgba(121, 202, 255, 0.55);
+  border-radius: 999px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.42);
+  font-size: 0.95rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.tv-navigation-hint[hidden] { display: none; }
