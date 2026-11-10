@@ -34,10 +34,10 @@
 ## 🖼️ Preview do site
 
 <div align="center">
-  <img src="assets/site-homepage.png" alt="Página inicial do site GSZ TV — menu Sobre, Recursos, Baixar, Galeria, Instalação e botão Baixar APK" width="800">
+  <img src="assets/site-homepage-v2.png" alt="Página inicial do site GSZ TV — menu Sobre, Recursos, Baixar, Galeria, Instalação e botão Baixar APK" width="800">
 </div>
 
-> Prévia do visual atual do site. Para atualizar esta imagem após alterações, capture a página inicial e substitua `assets/site-homepage.png`.
+> Prévia do visual atual do site. Para atualizar esta imagem após alterações, capture a página inicial e substitua `assets/site-homepage-v2.png`.
 
 ---
 
