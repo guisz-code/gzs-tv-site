@@ -366,9 +366,8 @@ img {
 /* ===== Sobre ===== */
 .sobre-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
+  grid-template-columns: minmax(0, 820px);
+  justify-content: center;
 }
 
 .sobre-texto h2 {
@@ -379,7 +378,7 @@ img {
 .sobre-texto p {
   color: var(--branco-suave);
   margin-bottom: 1.25rem;
-  max-width: 520px;
+  max-width: 760px;
 }
 
 .destaques {
