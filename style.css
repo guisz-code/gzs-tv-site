@@ -443,6 +443,8 @@ img {
 }
 
 .desenvolvedor-avatar {
+  position: relative;
+  overflow: hidden;
   display: grid;
   place-items: center;
   flex: 0 0 42px;
@@ -453,6 +455,15 @@ img {
   background: linear-gradient(140deg, #168eff, #0759df);
   border-radius: 50%;
   box-shadow: 0 5px 16px #0878eb3d;
+}
+
+.desenvolvedor-avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 }
 
 .ficha-desenvolvedor > div { display: flex; flex-direction: column; gap: 0.12rem; }

@@ -158,9 +158,13 @@
             <div><dt>Requisito</dt><dd>Android 8.0 ou superior</dd></div>
             <div><dt>Preço</dt><dd>Gratuito</dd></div>
             <div><dt>Licença</dt><dd>MIT · código aberto</dd></div>
+            <div><dt>Versão atual</dt><dd><a id="versao-launcher" href="https://github.com/guisz-code/GSZ-TV/releases/latest" target="_blank" rel="noopener noreferrer">Consultar última versão ↗</a></dd></div>
           </dl>
           <div class="ficha-desenvolvedor">
-            <span class="desenvolvedor-avatar" aria-hidden="true">GV</span>
+            <span class="desenvolvedor-avatar">
+              <span aria-hidden="true">GV</span>
+              <img id="avatar-github" src="https://github.com/guisz-code.png?size=96" alt="Foto de perfil de Guilherme Vila Verde no GitHub">
+            </span>
             <div>
               <span class="desenvolvedor-legenda">Feito no Brasil por</span>
               <strong>Guilherme Vila Verde</strong>
@@ -317,6 +321,39 @@ adb install -r GSZTV.apk</code></pre>
   </footer>
 
   <script>
+    // Busca a versão mais recente e o avatar público diretamente do GitHub.
+    async function carregarDadosGitHub() {
+      const versao = document.getElementById('versao-launcher');
+      const avatar = document.getElementById('avatar-github');
+      avatar.addEventListener('error', () => { avatar.hidden = true; }, { once: true });
+
+      try {
+        const resposta = await fetch('https://api.github.com/repos/guisz-code/GSZ-TV/releases/latest', { cache: 'no-store' });
+        if (resposta.ok) {
+          const release = await resposta.json();
+          if (release.tag_name) {
+            versao.textContent = release.tag_name;
+            versao.href = release.html_url;
+            versao.setAttribute('aria-label', 'Ver versão ' + release.tag_name + ' no GitHub');
+          }
+        }
+      } catch (erro) {
+        // Mantém o link para a página de releases como alternativa.
+      }
+
+      try {
+        const resposta = await fetch('https://api.github.com/users/guisz-code', { cache: 'no-store' });
+        if (resposta.ok) {
+          const perfil = await resposta.json();
+          if (perfil.avatar_url) avatar.src = perfil.avatar_url + '&size=96';
+        }
+      } catch (erro) {
+        // A URL pública do avatar definida no HTML continua como alternativa.
+      }
+    }
+
+    carregarDadosGitHub();
+
     // Troca de tema do launcher na página inicial (ciclo ao clicar no botão)
     const imagensTema = {
       'gsz-edition': 'assets/tema-gsz-edition.png',
