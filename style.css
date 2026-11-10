@@ -247,6 +247,55 @@ img {
   font-size: 1.1rem;
 }
 
+/* ===== Seletor de tema (hero) ===== */
+.tema-selector {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.6rem;
+  background: rgba(5, 5, 7, 0.7);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--cor-borda);
+  z-index: 10;
+}
+
+.btn-tema {
+  background: transparent;
+  color: var(--branco-suave);
+  border: none;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transicao);
+}
+
+.btn-tema:hover {
+  color: var(--branco);
+}
+
+.btn-tema.ativo {
+  background: var(--azul-neon);
+  color: #000;
+  box-shadow: var(--sombra-neon);
+}
+
+@media (max-width: 900px) {
+  .tema-selector {
+    bottom: 1rem;
+    padding: 0.4rem 0.6rem;
+  }
+  .btn-tema {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.8rem;
+  }
+}
+
 /* ===== Sobre ===== */
 .sobre-grid {
   display: grid;
