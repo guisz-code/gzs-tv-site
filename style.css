@@ -254,21 +254,43 @@ img {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  padding: 1rem 1.8rem;
+  padding: 0.85rem 1.5rem;
   margin-top: 1.5rem;
   border: none;
-  border-radius: 14px;
+  border-radius: 8px;
   background: var(--azul-neon);
   color: #fff;
-  font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: normal;
+  text-transform: none;
   cursor: pointer;
-  overflow: hidden;
-  box-shadow: var(--sombra-neon), inset 0 0 0 1px rgba(255,255,255,0.3);
+  box-shadow: var(--sombra-neon);
   transition: var(--transicao);
   z-index: 1;
+}
+
+.btn-download:hover {
+  background: #33fbff;
+  box-shadow: 0 0 30px rgba(0, 243, 255, 0.65);
+  transform: translateY(-2px);
+}
+
+.icone-baixa {
+  font-size: 1.05rem;
+  display: inline-flex;
+}
+
+.texto-baixa {
+  position: relative;
+  z-index: 1;
+}
+
+/* Centraliza o botão dentro da coluna de download */
+.baixar-conteudo .btn-download {
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-flex;
 }
 
 .btn-download::before {
