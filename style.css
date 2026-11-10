@@ -247,6 +247,70 @@ img {
   font-size: 1.1rem;
 }
 
+/* ===== Botão de download assimétrico ===== */
+.btn-download {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 1.8rem;
+  margin-top: 1.5rem;
+  border: none;
+  border-radius: 14px;
+  background: var(--azul-neon);
+  color: #000;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: var(--sombra-neon), inset 0 0 0 1px rgba(255,255,255,0.5);
+  transition: var(--transicao);
+  z-index: 1;
+}
+
+.btn-download::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.btn-download:hover {
+  filter: brightness(1.15);
+  box-shadow: 0 0 30px rgba(0, 243, 255, 0.7), inset 0 0 0 1px rgba(255,255,255,0.7);
+  transform: translateY(-2px);
+}
+
+.btn-download:hover::before {
+  opacity: 1;
+  transform: translateX(100%);
+}
+
+.icone-baixa {
+  font-size: 1.2rem;
+  display: inline-flex;
+}
+
+.texto-baixa {
+  position: relative;
+  z-index: 1;
+}
+
+/* Centraliza o botão dentro da coluna de download */
+.baixar-conteudo .btn-download {
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-flex;
+}
+
 /* ===== Alternador minimalista de temas, acima da imagem ===== */
 .hero-image {
   display: flex;
