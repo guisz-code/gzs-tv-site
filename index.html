@@ -102,11 +102,9 @@
     </div>
     <div class="hero-image">
       <img id="img-tema" src="assets/tema-gsz-edition.png" alt="Tela inicial do GSZ TV — tema GSZ EDITION" class="screenshot">
-      <div class="tema-selector" role="group" aria-label="Escolher tema do launcher">
-        <button type="button" class="btn-tema ativo" data-tema="gsz-edition" onclick="setTema('gsz-edition')">GSZ EDITION</button>
-        <button type="button" class="btn-tema" data-tema="branco" onclick="setTema('branco')">Branco</button>
-        <button type="button" class="btn-tema" data-tema="escuro" onclick="setTema('escuro')">Escuro</button>
-      </div>
+      <button id="btn-alternar-tema" class="btn-alternar-tema" aria-label="Alternar tema do launcher" onclick="alternarTema()">
+        <img src="assets/alternador-temas-gsz-edition.png" alt="Alternar tema do launcher">
+      </button>
     </div>
   </header>
 
@@ -294,39 +292,28 @@ adb install -r GSZTV.apk</code></pre>
   </footer>
 
   <script>
-    // Troca de tema do launcher na página inicial
+    // Troca de tema do launcher na página inicial (ciclo ao clicar no botão)
     const imagensTema = {
       'gsz-edition': 'assets/tema-gsz-edition.png',
       'branco': 'assets/tema-branco.png',
       'escuro': 'assets/tema-escuro.png'
     };
 
-    const labelsTema = {
-      'gsz-edition': 'Tela inicial do GSZ TV — tema GSZ EDITION',
-      'branco': 'Tela inicial do GSZ TV — tema branco',
-      'escuro': 'Tela inicial do GSZ TV — tema escuro'
-    };
+    const temas = ['gsz-edition', 'branco', 'escuro'];
+    let temaAtual = 0;
 
-    function setTema(tema) {
+    function alternarTema() {
+      temaAtual = (temaAtual + 1) % temas.length;
+      const tema = temas[temaAtual];
       const img = document.getElementById('img-tema');
-      const btns = document.querySelectorAll('.btn-tema');
 
-      // fade simples
       img.style.opacity = '0';
 
       setTimeout(() => {
         img.src = imagensTema[tema];
-        img.alt = labelsTema[tema];
+        img.alt = 'Tela inicial do GSZ TV — tema ' + tema;
         img.style.opacity = '1';
       }, 180);
-
-      btns.forEach(b => {
-        if (b.dataset.tema === tema) {
-          b.classList.add('ativo');
-        } else {
-          b.classList.remove('ativo');
-        }
-      });
     }
   </script>
 
