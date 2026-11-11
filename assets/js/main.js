@@ -34,9 +34,9 @@ async function carregarDadosGitHub() {
 
 // Troca de tema do launcher na página inicial (ciclo ao clicar no botão)
 const imagensTema = {
-  'gsz-edition': 'assets/img/tema-gsz-edition.png',
-  'branco': 'assets/img/tema-branco.png',
-  'escuro': 'assets/img/tema-escuro.png'
+  'gsz-edition': 'assets/img/tema-gsz-edition.webp',
+  'branco': 'assets/img/tema-branco.webp',
+  'escuro': 'assets/img/tema-escuro.webp'
 };
 
 const temas = ['gsz-edition', 'branco', 'escuro'];
@@ -89,7 +89,7 @@ function navegarComSetas(event) {
   const ativo = document.activeElement;
   if (ativo && (ativo.matches('input, textarea, select, [contenteditable="true"]') || ativo.isContentEditable)) return;
 
-  const focaveis = [...document.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+  const focaveis = [...document.querySelectorAll('a[href], button:not([disabled]), summary, [tabindex]:not([tabindex="-1"])')]
     .filter(elemento => elemento.getClientRects().length > 0 && getComputedStyle(elemento).visibility !== 'hidden');
   if (!focaveis.length) return;
 
