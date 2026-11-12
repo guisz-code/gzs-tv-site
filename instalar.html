@@ -135,6 +135,31 @@
         <div class="guia-atencao"><strong>Atenção:</strong> um terminal de shell remoto não instala arquivos sozinho. O app precisa permitir enviar o APK do celular para a TV.</div>
       </details>
       <details class="guia-opcao">
+        <summary><span>Usar comandos no celular (Termux)</span><small>Terminal</small></summary>
+        <p class="guia-antes">Alternativa para quem prefere digitar os comandos. Funciona em <strong>Android 11 ou superior</strong> e usa o próprio celular como cliente ADB. Na TV, ative a <a href="#preparar-adb" data-guia="preparar-adb">depuração sem fio</a> e mantenha os dois na mesma rede Wi-Fi.</p>
+        <ol class="guia-passos">
+          <li><strong>Instale o Termux pelo F-Droid</strong> (a versão da Play Store foi descontinuada). Abra o app e instale as ferramentas do Android:
+            <pre><code>pkg update &amp;&amp; pkg install android-tools</code></pre>
+          </li>
+          <li><strong>Libere o acesso aos arquivos</strong> e confirme o APK baixado. Aceite a permissão de armazenamento quando o Android pedir:
+            <pre><code>termux-setup-storage
+ls /sdcard/Download/GSZTV.apk</code></pre>
+          </li>
+          <li><strong>Pareie com a TV</strong> usando o IP, a porta de pareamento e o código que aparecem em “Depuração sem fio → Parear dispositivo com código”:
+            <pre><code>adb pair IP_DA_TV:PORTA_PAREAMENTO</code></pre>
+          </li>
+          <li><strong>Conecte pela porta de conexão</strong> exibida na tela principal da depuração sem fio e confira se o aparelho aparece:
+            <pre><code>adb connect IP_DA_TV:PORTA_CONEXAO
+adb devices</code></pre>
+          </li>
+          <li><strong>Instale o APK e abra o GSZ TV na TV.</strong> Se a TV pedir autorização, aceite antes de repetir o comando:
+            <pre><code>adb install -r /sdcard/Download/GSZTV.apk</code></pre>
+          </li>
+        </ol>
+        <div class="guia-dica"><strong>Caminho do arquivo:</strong> se <code>/sdcard/Download/</code> não existir, tente <code>/storage/emulated/0/Download/GSZTV.apk</code>. O comando <code>ls</code> mostra o conteúdo da pasta.</div>
+        <div class="guia-atencao"><strong>Limitações:</strong> alguns fabricantes bloqueiam ADB a partir do próprio celular e o pareamento depende do Android 11+. Não use <code>adb pair</code> no modo antigo “Depuração pela rede”: nele, conecte direto ao IP e à porta informados. Ao terminar, rode <code>adb disconnect</code>.</div>
+      </details>
+      <details class="guia-opcao">
         <summary><span>Enviar via ADB por cabo USB</span><small>Só se a TV aceitar</small></summary>
         <p class="guia-antes">Poucas TVs e projetores aceitam esse tipo de conexão. O celular precisa ter <strong>USB OTG / modo host</strong> e um cliente ADB com suporte a USB.</p>
         <ol class="guia-passos">
@@ -190,16 +215,15 @@
         <summary><span>Wi-Fi com código de pareamento</span><small>Quando a TV oferece</small></summary>
         <ol class="guia-passos">
           <li><strong>Deixe PC e TV na mesma rede</strong> e ative <strong>Depuração sem fio</strong> nas opções do desenvolvedor da TV.</li>
-          <li><strong>Na TV, toque em “Parear dispositivo com código”</strong> e use o IP e a porta de pareamento mostrados:</li>
-        </ol>
-        <pre><code>.\adb pair IP_DA_TV:PORTA_PAREAMENTO</code></pre>
-        <ol class="guia-passos" start="3">
-          <li><strong>Digite o código</strong> quando o terminal pedir. Depois volte à tela principal da depuração sem fio e copie o IP e a <strong>porta de conexão</strong>.</li>
-          <li><strong>Conecte e instale:</strong></li>
-        </ol>
-        <pre><code>.\adb connect IP_DA_TV:PORTA_CONEXAO
+          <li><strong>Na TV, toque em “Parear dispositivo com código”</strong> e use o IP e a porta de pareamento mostrados:
+            <pre><code>.\adb pair IP_DA_TV:PORTA_PAREAMENTO</code></pre>
+          </li>
+          <li><strong>Digite o código</strong> quando o terminal pedir. Depois volte à tela principal da depuração sem fio, copie o IP e a <strong>porta de conexão</strong> e rode:
+            <pre><code>.\adb connect IP_DA_TV:PORTA_CONEXAO
 .\adb devices
 .\adb install -r "GSZTV.apk"</code></pre>
+          </li>
+        </ol>
         <div class="guia-dica"><strong>Exemplo:</strong> <code>192.168.1.50:37123</code>. Os números são só ilustrativos — use sempre os que aparecem na sua TV. A porta de conexão muda ao reativar a depuração.</div>
       </details>
 
@@ -207,15 +231,15 @@
         <summary><span>Wi-Fi no modo antigo (porta 5555)</span><small>Firmwares mais antigos</small></summary>
         <ol class="guia-passos">
           <li><strong>Se a TV tiver “Depuração pela rede”,</strong> ative e use o IP e a porta mostrados. Não rode <code>adb pair</code> nesse modo.</li>
-          <li><strong>Se não tiver, mas aceitar ADB por USB,</strong> conecte o cabo, autorize o PC e confirme o estado device. Com apenas a TV conectada, rode:</li>
-        </ol>
-        <pre><code>.\adb tcpip 5555</code></pre>
-        <ol class="guia-passos" start="3">
-          <li><strong>Veja o IP da TV em Configurações → Rede.</strong> Desconecte o cabo e conecte pela rede:</li>
-        </ol>
-        <pre><code>.\adb connect IP_DA_TV:5555
+          <li><strong>Se não tiver, mas aceitar ADB por USB,</strong> conecte o cabo, autorize o PC e confirme o estado device. Com apenas a TV conectada, rode:
+            <pre><code>.\adb tcpip 5555</code></pre>
+          </li>
+          <li><strong>Veja o IP da TV em Configurações → Rede.</strong> Desconecte o cabo, conecte pela rede e instale:
+            <pre><code>.\adb connect IP_DA_TV:5555
 .\adb devices
 .\adb install -r "GSZTV.apk"</code></pre>
+          </li>
+        </ol>
         <div class="guia-atencao"><strong>Depende do firmware.</strong> Se a TV não tiver depuração de rede e não aceitar ADB USB, use o envio direto, um app de transferência ou o pendrive. Para voltar ao modo USB, rode <code>.\adb usb</code> enquanto ainda estiver conectado.</div>
       </details>
 
