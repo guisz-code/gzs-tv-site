@@ -119,9 +119,9 @@ img {
 .hero-content .badge {
   display: inline-block;
   padding: 0.45rem 1rem;
-  background: var(--azul-neon-suave);
-  color: var(--azul-neon);
-  border: 1px solid rgba(35, 145, 255, 0.35);
+  background: rgba(255, 255, 255, 0.07);
+  color: #f4f9ff;
+  border: 1px solid rgba(220, 240, 255, 0.32);
   border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 700;
@@ -850,7 +850,41 @@ img {
   }
 }
 /* Acabamento inspirado nos tons azuis da tela inicial do GSZ TV. */
-body { background: radial-gradient(ellipse at 80% 8%, #0b2947 0, transparent 34%), var(--cor-fundo); }
+body {
+  background: #020712;
+  isolation: isolate;
+  position: relative;
+}
+
+/* A aurora acompanha a página e escurece gradualmente até o rodapé. */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, transparent 0%, transparent 68%, rgba(2, 5, 14, 0.16) 71%, rgba(2, 5, 14, 0.62) 88%, #02040a 100%),
+    radial-gradient(ellipse 110vw 800px at -10% -500px,
+      transparent 77%, rgba(0, 62, 180, 0.12) 87%,
+      rgba(0, 112, 255, 0.3) 94%, rgba(0, 156, 255, 0.65) 97.6%,
+      #8aeaff 98%, #008dff 98.15%, rgba(0, 92, 255, 0.18) 98.8%, transparent 102%),
+    radial-gradient(ellipse 95vw 1500px at 116% 76%,
+      transparent 76%, rgba(0, 62, 180, 0.1) 88%,
+      rgba(0, 104, 255, 0.25) 95%, rgba(0, 156, 255, 0.6) 97.7%,
+      #62dfff 98%, #007aff 98.15%, rgba(0, 82, 255, 0.16) 98.9%, transparent 103%),
+    radial-gradient(ellipse 110vw 1550px at 116% 76%,
+      transparent 97.8%, rgba(31, 115, 238, 0.17) 98%, transparent 98.25%),
+    radial-gradient(ellipse 90vw 900px at 82% 18%, rgba(8, 67, 153, 0.16), transparent 72%),
+    radial-gradient(ellipse 90vw 1000px at 12% 68%, rgba(0, 48, 126, 0.13), transparent 72%),
+    linear-gradient(145deg, #030b1b, #020712 55%, #020916);
+}
+
+.bg-escuro {
+  background: linear-gradient(110deg, rgba(5, 15, 30, 0.82), rgba(7, 23, 44, 0.5), rgba(3, 12, 26, 0.82));
+}
+.footer { background: linear-gradient(180deg, rgba(2, 7, 18, 0.7), #020712); }
+
 html { scroll-padding-top: 150px; }
 .hero { gap: 2.5rem; padding-top: 6rem; padding-bottom: 6rem; }
 .hero h1 { font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -0.055em; }
