@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="assets/img/logo-gsz-tv.png" alt="Logo GSZ TV" width="80">
+  <img src="assets/img/logo-gsz-tv.webp" alt="Logo GSZ TV" width="80">
   <br>
   GSZ TV — Site Oficial
   <br>
