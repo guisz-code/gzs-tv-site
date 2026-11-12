@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como baixar e instalar o GSZ TV — TV, celular, PC e pendrive</title>
+  <meta name="description" content="Instale o GSZ TV na TV ou projetor Android: download direto, transferência por celular, computador ou pendrive e conexão ADB por USB ou Wi-Fi.">
+  <meta name="theme-color" content="#040a12">
+  <link rel="canonical" href="https://guisz-code.github.io/gzs-tv-site/instalar.html">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/instalar.css">
+</head>
+<body class="pagina-instalacao">
+  <nav class="navbar" aria-label="Navegação principal">
+    <div class="nav-container">
+      <a href="index.html" class="logo-link" aria-label="GSZ TV — página inicial"><img src="assets/img/logo-gsz-tv.webp" class="logo" alt="" width="256" height="256"></a>
+      <a href="index.html" class="btn outline">← Voltar ao site</a>
+      <a href="#direto" class="btn neon">Baixar APK</a>
+    </div>
+  </nav>
+
+  <main class="guia container" data-guia-app>
+    <header class="guia-abertura" id="downloads">
+      <span class="guia-eyebrow">GSZ TV · Instalação</span>
+      <h1>Instale em<br><span>poucos minutos.</span></h1>
+      <p class="guia-sub">Baixe o APK e escolha por onde começar. O guia mostra só o caminho que você selecionar — sem precisar ler tudo.</p>
+
+      <div class="guia-baixar" id="direto">
+        <div class="guia-baixar-texto">
+          <span class="guia-numero">1</span>
+          <div>
+            <strong>Baixe o APK oficial</strong>
+            <p>Arquivo <code>GSZTV.apk</code> · Android 8.0 ou superior</p>
+          </div>
+        </div>
+        <div class="guia-baixar-acoes">
+          <a class="btn neon" href="https://github.com/guisz-code/GSZ-TV/releases/latest/download/GSZTV.apk" aria-describedby="direto-info">Baixar APK direto 📥</a>
+          <a class="btn outline" id="releases" href="https://github.com/guisz-code/GSZ-TV/releases/latest" aria-describedby="releases-info">GitHub Releases ↗</a>
+        </div>
+        <p class="guia-baixar-nota" id="direto-info">O download começa na hora. O navegador pode pedir confirmação.</p>
+        <p class="guia-baixar-nota" id="releases-info">Alternativa: abre a página de releases no GitHub. Em <strong>Assets</strong>, escolha <strong>GSZTV.apk</strong>.</p>
+      </div>
+    </header>
+
+    <section class="guia-escolha" id="escolha" aria-labelledby="escolha-titulo">
+      <h2 id="escolha-titulo"><span class="guia-numero">2</span> Escolha onde instalar</h2>
+      <div class="guia-metodos">
+        <a class="metodo" href="#pela-tv" data-guia="pela-tv" aria-current="true">
+          <span class="metodo-icone" aria-hidden="true">📺</span>
+          <span class="metodo-texto"><strong>Na própria TV</strong><small>Mais rápido · sem PC</small></span>
+          <span class="metodo-seta" aria-hidden="true">→</span>
+        </a>
+        <a class="metodo" href="#pelo-celular" data-guia="pelo-celular">
+          <span class="metodo-icone" aria-hidden="true">📱</span>
+          <span class="metodo-texto"><strong>Pelo celular</strong><small>Android · envio pela rede</small></span>
+          <span class="metodo-seta" aria-hidden="true">→</span>
+        </a>
+        <a class="metodo" href="#pelo-pc" data-guia="pelo-pc">
+          <span class="metodo-icone" aria-hidden="true">💻</span>
+          <span class="metodo-texto"><strong>Pelo PC</strong><small>Windows, macOS ou Linux</small></span>
+          <span class="metodo-seta" aria-hidden="true">→</span>
+        </a>
+        <a class="metodo" href="#pendrive" data-guia="pendrive">
+          <span class="metodo-icone" aria-hidden="true">🔌</span>
+          <span class="metodo-texto"><strong>Via pendrive</strong><small>Sem internet na TV</small></span>
+          <span class="metodo-seta" aria-hidden="true">→</span>
+        </a>
+      </div>
+      <div class="guia-ajuda-cards">
+        <a href="#preparar-adb" data-guia="preparar-adb"><span aria-hidden="true">⚙️</span> Preparar modo desenvolvedor e ADB</a>
+        <a href="#problemas" data-guia="problemas"><span aria-hidden="true">🛠️</span> Algo deu errado? Ver soluções</a>
+      </div>
+    </section>
+
+    <section class="guia-painel" id="pela-tv" data-painel tabindex="-1" aria-labelledby="titulo-pela-tv">
+      <div class="guia-painel-topo">
+        <div>
+          <span class="guia-eyebrow">Caminho 01 · cerca de 2 minutos</span>
+          <h2 id="titulo-pela-tv">Direto na TV ou projetor</h2>
+          <p>Sem computador e sem modo desenvolvedor. Você só precisa de um navegador no aparelho.</p>
+          <ul class="guia-requisitos">
+            <li>📺 TV ou projetor Android</li>
+            <li>🌐 Internet</li>
+            <li>🧭 Navegador</li>
+          </ul>
+        </div>
+        <a class="guia-trocar" href="#escolha">Trocar caminho ↑</a>
+      </div>
+      <ol class="guia-passos">
+        <li><strong>Abra o navegador da TV</strong> e acesse <code>guisz-code.github.io/gzs-tv-site/instalar.html</code>. Se não houver navegador, use celular, PC ou pendrive.</li>
+        <li><strong>Toque em “Baixar APK direto”</strong> e espere o download terminar.</li>
+        <li><strong>Abra o GSZTV.apk</strong> na lista de downloads. Se ele não abrir, use um gerenciador de arquivos e procure a pasta <strong>Download</strong>.</li>
+        <li><strong>Se o Android bloquear:</strong> vá em <strong>Configurações → Apps → Acesso especial → Instalar apps desconhecidos</strong> e autorize o navegador ou gerenciador que está abrindo o arquivo. Os nomes variam por fabricante.</li>
+        <li><strong>Confirme “Instalar”</strong> e abra o GSZ TV.</li>
+      </ol>
+      <div class="guia-dica"><strong>Dica:</strong> esse é o caminho mais simples. Se o navegador da TV falhar no download, tente um dos outros três caminhos.</div>
+    </section>
+
+    <section class="guia-painel" id="pelo-celular" data-painel tabindex="-1" aria-labelledby="titulo-pelo-celular" hidden>
+      <div class="guia-painel-topo">
+        <div>
+          <span class="guia-eyebrow">Caminho 02 · cerca de 5 minutos</span>
+          <h2 id="titulo-pelo-celular">Pelo celular Android</h2>
+          <p>Baixe o APK no celular e envie para a TV. O modo mais simples é pela rede local, sem cabos.</p>
+          <ul class="guia-requisitos">
+            <li>📱 Celular Android</li>
+            <li>📺 TV ou projetor Android</li>
+            <li>📶 Mesma rede Wi-Fi</li>
+          </ul>
+        </div>
+        <a class="guia-trocar" href="#escolha">Trocar caminho ↑</a>
+      </div>
+      <details class="guia-opcao" open>
+        <summary><span>Enviar pela rede (sem ADB)</span><small>Recomendado</small></summary>
+        <ol class="guia-passos">
+          <li><strong>Conecte celular e TV na mesma rede Wi-Fi.</strong> Redes de convidados podem bloquear a comunicação entre aparelhos.</li>
+          <li><strong>Instale um app de transferência nos dois:</strong> por exemplo, <strong>Send Files to TV</strong>, disponível na loja oficial do seu aparelho.</li>
+          <li><strong>No celular:</strong> baixe o APK no topo desta página, abra o app e escolha <strong>Enviar / Send</strong>. Selecione <strong>GSZTV.apk</strong> e depois a TV na lista.</li>
+          <li><strong>Na TV:</strong> abra o app e escolha <strong>Receber / Receive</strong> e espere o fim do envio.</li>
+          <li><strong>Abra o arquivo recebido na TV</strong> (normalmente em Download), autorize apps desconhecidos para o gerenciador e toque em <strong>Instalar</strong>.</li>
+        </ol>
+        <div class="guia-dica"><strong>Por que esse caminho?</strong> Não exige cabo, depuração nem senha. Só precisa que os dois aparelhos estejam na mesma rede.</div>
+      </details>
+      <details class="guia-opcao">
+        <summary><span>Enviar via ADB por Wi-Fi</span><small>Avançado</small></summary>
+        <p class="guia-antes">Na TV, siga primeiro <a href="#preparar-adb" data-guia="preparar-adb">Preparar modo desenvolvedor e ADB</a>. O celular é só o cliente: não precisa ativar depuração nele.</p>
+        <ol class="guia-passos">
+          <li><strong>Instale no celular um cliente ADB remoto</strong> que aceite pareamento sem fio e instalação de APK local. Os menus mudam de app para app.</li>
+          <li><strong>Na TV, abra “Depuração sem fio”.</strong> Se existir <strong>Parear dispositivo com código</strong>, toque nela para ver IP, porta de pareamento e código.</li>
+          <li><strong>No celular, escolha Parear</strong> e informe o IP, a porta de pareamento e o código. Depois volte à tela principal da depuração sem fio.</li>
+          <li><strong>Conecte usando a porta de conexão</strong> mostrada nessa tela. Ela costuma ser diferente da porta usada para parear.</li>
+          <li><strong>Se a TV só tiver “Depuração pela rede”</strong> (método antigo, geralmente porta 5555), conecte direto ao IP e à porta informados. Não use código de pareamento e aceite a autorização na TV, se aparecer.</li>
+          <li><strong>No cliente, use “Instalar APK”</strong>, escolha GSZTV.apk na pasta de downloads do celular e aguarde a confirmação. Abra o GSZ TV na TV ao terminar.</li>
+        </ol>
+        <div class="guia-atencao"><strong>Atenção:</strong> um terminal de shell remoto não instala arquivos sozinho. O app precisa permitir enviar o APK do celular para a TV.</div>
+      </details>
+      <details class="guia-opcao">
+        <summary><span>Enviar via ADB por cabo USB</span><small>Só se a TV aceitar</small></summary>
+        <p class="guia-antes">Poucas TVs e projetores aceitam esse tipo de conexão. O celular precisa ter <strong>USB OTG / modo host</strong> e um cliente ADB com suporte a USB.</p>
+        <ol class="guia-passos">
+          <li><strong>Confira no manual</strong> se a porta USB da TV é de <strong>dados com suporte a ADB</strong>. Muitas portas servem apenas para pendrive.</li>
+          <li><strong>Ative a depuração USB na TV</strong> seguindo <a href="#preparar-adb" data-guia="preparar-adb">Preparar modo desenvolvedor e ADB</a>.</li>
+          <li><strong>Conecte o celular à porta de dados da TV</strong> com adaptador OTG e cabo compatíveis. Não use a entrada de energia do projetor como porta de dados e nunca ligue duas portas USB-A host com um cabo comum.</li>
+          <li><strong>Aceite no celular o acesso ao dispositivo USB</strong> e, na TV, a chave de depuração que aparecer.</li>
+          <li><strong>No cliente ADB, use “Instalar APK”</strong>, selecione GSZTV.apk e espere a confirmação. Depois desconecte o cabo.</li>
+        </ol>
+        <div class="guia-atencao"><strong>Se o cliente não encontrar a TV,</strong> o modelo provavelmente não aceita ADB por USB. Use o envio pela rede ou o pendrive.</div>
+      </details>
+    </section>
+
+    <section class="guia-painel" id="pelo-pc" data-painel tabindex="-1" aria-labelledby="titulo-pelo-pc" hidden>
+      <div class="guia-painel-topo">
+        <div>
+          <span class="guia-eyebrow">Caminho 03 · cerca de 10 minutos</span>
+          <h2 id="titulo-pelo-pc">Pelo computador ou notebook</h2>
+          <p>A forma mais direta é instalar por ADB, com o cabo USB ou pela rede Wi-Fi.</p>
+          <ul class="guia-requisitos">
+            <li>💻 Windows, macOS ou Linux</li>
+            <li>🔗 Cabo USB ou Wi-Fi</li>
+            <li>📦 Platform-Tools</li>
+          </ul>
+        </div>
+        <a class="guia-trocar" href="#escolha">Trocar caminho ↑</a>
+      </div>
+
+      <h3 class="guia-subtitulo">Antes de começar</h3>
+      <ol class="guia-passos">
+        <li><strong>Baixe o GSZTV.apk</strong> no topo desta página.</li>
+        <li><strong>Baixe as <a href="https://developer.android.com/tools/releases/platform-tools?hl=pt-br">Platform-Tools oficiais do Google</a></strong> e extraia o ZIP para uma pasta fácil de achar.</li>
+        <li><strong>Copie o APK para a pasta platform-tools</strong> e abra um terminal nela. No Windows, clique com o botão direito na pasta e escolha “Abrir no Terminal”.</li>
+      </ol>
+      <p class="guia-antes">Os comandos abaixo usam <code>.\adb</code> no <strong>PowerShell</strong>. No macOS/Linux, use <code>./adb</code>. Se o ADB já estiver instalado no sistema, basta digitar <code>adb</code>.</p>
+      <pre><code>.\adb version</code></pre>
+      <p class="guia-antes">Apareceu a versão do Android Debug Bridge? Então escolha como conectar:</p>
+
+      <details class="guia-opcao" open>
+        <summary><span>Cabo USB</span><small>Mais estável</small></summary>
+        <ol class="guia-passos">
+          <li><strong>Ative a depuração USB na TV</strong> seguindo <a href="#preparar-adb" data-guia="preparar-adb">Preparar modo desenvolvedor e ADB</a>. A porta precisa aceitar ADB, não apenas pendrive.</li>
+          <li><strong>Conecte o cabo de dados</strong> entre a TV e o PC. Evite cabo USB-A para USB-A entre duas portas host; se o modelo não aceitar cabo, use Wi-Fi.</li>
+          <li><strong>Rode o comando</strong> e aceite na TV o aviso “Permitir depuração USB?”. Se o aparelho não aparecer, rode de novo.</li>
+        </ol>
+        <pre><code>.\adb devices</code></pre>
+        <p class="guia-antes">O estado precisa ser <strong>device</strong>. No Windows, se não aparecer, pode faltar o driver ADB do fabricante. Então instale:</p>
+        <pre><code>.\adb install -r "GSZTV.apk"</code></pre>
+        <p class="guia-antes">Espere a mensagem <strong>Success</strong> e abra o GSZ TV na TV. O <code>-r</code> atualiza uma instalação existente sem apagar os dados, desde que a assinatura seja a mesma.</p>
+      </details>
+
+      <details class="guia-opcao">
+        <summary><span>Wi-Fi com código de pareamento</span><small>Quando a TV oferece</small></summary>
+        <ol class="guia-passos">
+          <li><strong>Deixe PC e TV na mesma rede</strong> e ative <strong>Depuração sem fio</strong> nas opções do desenvolvedor da TV.</li>
+          <li><strong>Na TV, toque em “Parear dispositivo com código”</strong> e use o IP e a porta de pareamento mostrados:</li>
+        </ol>
+        <pre><code>.\adb pair IP_DA_TV:PORTA_PAREAMENTO</code></pre>
+        <ol class="guia-passos" start="3">
+          <li><strong>Digite o código</strong> quando o terminal pedir. Depois volte à tela principal da depuração sem fio e copie o IP e a <strong>porta de conexão</strong>.</li>
+          <li><strong>Conecte e instale:</strong></li>
+        </ol>
+        <pre><code>.\adb connect IP_DA_TV:PORTA_CONEXAO
+.\adb devices
+.\adb install -r "GSZTV.apk"</code></pre>
+        <div class="guia-dica"><strong>Exemplo:</strong> <code>192.168.1.50:37123</code>. Os números são só ilustrativos — use sempre os que aparecem na sua TV. A porta de conexão muda ao reativar a depuração.</div>
+      </details>
+
+      <details class="guia-opcao">
+        <summary><span>Wi-Fi no modo antigo (porta 5555)</span><small>Firmwares mais antigos</small></summary>
+        <ol class="guia-passos">
+          <li><strong>Se a TV tiver “Depuração pela rede”,</strong> ative e use o IP e a porta mostrados. Não rode <code>adb pair</code> nesse modo.</li>
+          <li><strong>Se não tiver, mas aceitar ADB por USB,</strong> conecte o cabo, autorize o PC e confirme o estado device. Com apenas a TV conectada, rode:</li>
+        </ol>
+        <pre><code>.\adb tcpip 5555</code></pre>
+        <ol class="guia-passos" start="3">
+          <li><strong>Veja o IP da TV em Configurações → Rede.</strong> Desconecte o cabo e conecte pela rede:</li>
+        </ol>
+        <pre><code>.\adb connect IP_DA_TV:5555
+.\adb devices
+.\adb install -r "GSZTV.apk"</code></pre>
+        <div class="guia-atencao"><strong>Depende do firmware.</strong> Se a TV não tiver depuração de rede e não aceitar ADB USB, use o envio direto, um app de transferência ou o pendrive. Para voltar ao modo USB, rode <code>.\adb usb</code> enquanto ainda estiver conectado.</div>
+      </details>
+
+      <div class="guia-dica"><strong>Mais de um aparelho conectado?</strong> Use <code>.\adb -s SERIAL install -r "GSZTV.apk"</code>, trocando SERIAL pelo código mostrado em <code>.\adb devices</code>. Para encerrar conexões de rede, rode <code>.\adb disconnect</code>. Isso não desativa a depuração na TV.</div>
+    </section>
+
+    <section class="guia-painel" id="pendrive" data-painel tabindex="-1" aria-labelledby="titulo-pendrive" hidden>
+      <div class="guia-painel-topo">
+        <div>
+          <span class="guia-eyebrow">Caminho 04 · cerca de 3 minutos</span>
+          <h2 id="titulo-pendrive">Via pendrive</h2>
+          <p>Ideal quando a TV não tem navegador ou a internet do aparelho é instável.</p>
+          <ul class="guia-requisitos">
+            <li>💾 Pendrive</li>
+            <li>🔌 Porta USB na TV</li>
+            <li>🖥️ PC ou celular para copiar</li>
+          </ul>
+        </div>
+        <a class="guia-trocar" href="#escolha">Trocar caminho ↑</a>
+      </div>
+      <ol class="guia-passos">
+        <li><strong>Baixe o GSZTV.apk</strong> no PC ou no celular e copie para o pendrive. No celular, pode ser necessário um adaptador OTG.</li>
+        <li><strong>Use um formato que a TV leia:</strong> FAT32 costuma funcionar; exFAT depende do aparelho. Se for formatar, copie antes os arquivos, porque a formatação apaga tudo.</li>
+        <li><strong>Ejete o pendrive com segurança</strong> e conecte na porta USB da TV destinada a armazenamento.</li>
+        <li><strong>Abra um gerenciador de arquivos na TV,</strong> selecione a unidade USB e toque em GSZTV.apk.</li>
+        <li><strong>Autorize apps desconhecidos</strong> para o gerenciador quando o aviso aparecer, volte ao arquivo e confirme <strong>Instalar</strong>.</li>
+      </ol>
+      <div class="guia-dica"><strong>Sem mistério:</strong> este caminho não precisa de ADB, modo desenvolvedor nem depuração. A porta de pendrive é diferente de uma porta de dados ADB.</div>
+    </section>
+
+    <section class="guia-painel" id="preparar-adb" data-painel tabindex="-1" aria-labelledby="titulo-preparar-adb" hidden>
+      <div class="guia-painel-topo">
+        <div>
+          <span class="guia-eyebrow">Preparação · só para os caminhos com ADB</span>
+          <h2 id="titulo-preparar-adb">Modo desenvolvedor e depuração</h2>
+          <p>Faça isso na TV ou projetor que vai receber o GSZ TV. Não é preciso root nem desbloquear o bootloader.</p>
+        </div>
+        <a class="guia-trocar" href="#escolha">Trocar caminho ↑</a>
+      </div>
+      <ol class="guia-passos">
+        <li><strong>Abra Configurações → Sistema → Sobre.</strong> Em alguns aparelhos o caminho é Preferências do dispositivo → Sobre.</li>
+        <li><strong>Toque cerca de 7 vezes em “Compilação”</strong> (ou “Número da versão” / “Android TV OS build”) até aparecer “Você agora é um desenvolvedor”. Se pedir PIN, informe o do próprio aparelho.</li>
+        <li><strong>Volte e abra “Opções do desenvolvedor”.</strong> Se houver uma chave geral, ative.</li>
+        <li><strong>Para cabo USB:</strong> ative <strong>Depuração USB</strong>, conecte o PC ou celular e aceite a chave exibida na TV. Marque “Sempre permitir” apenas em aparelhos de confiança.</li>
+        <li><strong>Para Wi-Fi:</strong> ative <strong>Depuração sem fio</strong> (pareamento por código) ou <strong>Depuração pela rede</strong> (método antigo). Ativar só a depuração USB não libera a conexão Wi-Fi.</li>
+        <li><strong>Anote IP e portas</strong> quando aparecerem. Use uma rede local de confiança e nunca encaminhe a porta ADB no roteador para a internet.</li>
+      </ol>
+      <div class="guia-atencao"><strong>Fabricante escondeu a opção?</strong> Não existe um caminho universal. Nesses casos, use a instalação pela própria TV, o envio de arquivo ou o pendrive.</div>
+      <div class="guia-dica"><strong>Terminou?</strong> Desative a depuração que não for usar e revogue autorizações ou dispositivos pareados nas opções do desenvolvedor.</div>
+      <div class="guia-links"><a href="#pelo-celular" data-guia="pelo-celular">← Continuar pelo celular</a><a href="#pelo-pc" data-guia="pelo-pc">← Continuar pelo computador</a></div>
+    </section>
+
+    <section class="guia-painel" id="problemas" data-painel tabindex="-1" aria-labelledby="titulo-problemas" hidden>
+      <div class="guia-painel-topo">
+        <div>
+          <span class="guia-eyebrow">Socorro rápido</span>
+          <h2 id="titulo-problemas">Algo não funcionou?</h2>
+          <p>Toque no problema para ver a solução. Comece pelo mais parecido com o seu caso.</p>
+        </div>
+        <a class="guia-trocar" href="#escolha">Trocar caminho ↑</a>
+      </div>
+      <details class="guia-problema">
+        <summary>O ADB mostra <code>unauthorized</code></summary>
+        <p>Olhe a tela da TV e aceite a autorização. Se o aviso não aparecer, reconecte. Também vale revogar as autorizações de depuração na TV e autorizar de novo.</p>
+      </details>
+      <details class="guia-problema">
+        <summary>O aparelho não aparece, fica offline ou dá <code>connection refused</code></summary>
+        <p>Confira cabo de dados, porta ADB, driver, IP e porta atuais. No Wi-Fi, confirme que PC e TV estão na mesma rede e que a depuração está ativa. Pareamento e conexão usam portas diferentes. Verifique a permissão do ADB na rede privada do firewall — não desative o firewall inteiro.</p>
+      </details>
+      <details class="guia-problema">
+        <summary>Aparece <code>more than one device/emulator</code></summary>
+        <p>Use o identificador mostrado em <code>adb devices</code> junto com a opção <code>-s</code>, ou desconecte os outros aparelhos antes de instalar.</p>
+      </details>
+      <details class="guia-problema">
+        <summary>Erro <code>INSTALL_FAILED_UPDATE_INCOMPATIBLE</code></summary>
+        <p>A assinatura do APK não corresponde à versão já instalada. Use o APK da mesma origem da instalação anterior. Desinstalar resolve, mas apaga os dados e as configurações do app.</p>
+      </details>
+      <details class="guia-problema">
+        <summary>Arquivo inválido, versão antiga ou pouco espaço</summary>
+        <p>Baixe de novo o APK mais recente, confirme Android 8.0 ou superior e libere armazenamento. Não tente instalar os arquivos “Source code” do GitHub: o correto é <strong>GSZTV.apk</strong>.</p>
+      </details>
+
+      <h3 class="guia-subtitulo">Instalou? Agora abra o GSZ TV</h3>
+      <p class="guia-antes">Na TV, abra o app e configure temas e atalhos. Em aparelhos compatíveis, use a opção <strong>Início</strong> nas configurações do launcher para escolher a tela inicial — isso depende do sistema do aparelho.</p>
+      <p class="guia-antes">Para atualizar, instale o APK novo por cima do atual, sem desinstalar. Dentro do GSZ TV, consulte também <strong>Configurações → Atualizações</strong>.</p>
+      <div class="guia-links"><a href="#direto">↑ Baixar o APK</a><a href="index.html">Voltar ao site</a><a href="https://developer.android.com/tools/adb?hl=pt-br">Documentação oficial do ADB ↗</a></div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container"><p>GSZ TV · Guia de instalação para Android TV e projetores Android.</p><a href="index.html">Página inicial</a></div></footer>
+  <div id="tv-navigation-hint" class="tv-navigation-hint" role="status" hidden>Use as setas para navegar e OK para selecionar</div>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

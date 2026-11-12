@@ -90,10 +90,16 @@ function navegarComSetas(event) {
   if (ativo && (ativo.matches('input, textarea, select, [contenteditable="true"]') || ativo.isContentEditable)) return;
 
   const focaveis = [...document.querySelectorAll('a[href], button:not([disabled]), summary, [tabindex]:not([tabindex="-1"])')]
-    .filter(elemento => elemento.getClientRects().length > 0 && getComputedStyle(elemento).visibility !== 'hidden');
+    .filter(elemento => {
+      const fechado = elemento.closest('details:not([open])');
+      return (!fechado || elemento === fechado.querySelector('summary')) &&
+        elemento.getClientRects().length > 0 && getComputedStyle(elemento).visibility !== 'hidden';
+    });
   if (!focaveis.length) return;
 
-  const origem = ativo && focaveis.includes(ativo) ? ativo.getBoundingClientRect() : null;
+  // Usa o elemento em foco como âncora mesmo quando ele é um título com tabindex="-1".
+  const ancora = ativo && ativo !== document.body && ativo.getClientRects().length > 0 ? ativo : null;
+  const origem = ancora ? ancora.getBoundingClientRect() : null;
   let candidatos;
 
   if (!origem) {
@@ -123,11 +129,73 @@ function navegarComSetas(event) {
   proximo.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
 }
 
+// Guia de instalação: mostra apenas o caminho escolhido pelo visitante.
+function iniciarGuiaInstalacao() {
+  const guia = document.querySelector('[data-guia-app]');
+  if (!guia) return;
+
+  const paineis = [...guia.querySelectorAll('[data-painel]')];
+  const links = [...guia.querySelectorAll('[data-guia]')];
+  const ids = paineis.map(painel => painel.id);
+
+  function mostrar(id, opcoes = {}) {
+    if (!ids.includes(id)) id = ids[0];
+
+    paineis.forEach(painel => { painel.hidden = painel.id !== id; });
+    links.forEach(link => {
+      if (link.dataset.guia === id) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
+
+    if (opcoes.atualizarHash !== false && history.replaceState) {
+      history.replaceState(null, '', '#' + id);
+    }
+
+    if (opcoes.rolarPara) {
+      const painel = document.getElementById(id);
+      painel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const titulo = painel.querySelector('h2');
+      if (titulo) {
+        titulo.setAttribute('tabindex', '-1');
+        titulo.focus({ preventScroll: true });
+      }
+    }
+  }
+
+  guia.addEventListener('click', evento => {
+    const link = evento.target.closest('[data-guia]');
+    if (!link) return;
+    evento.preventDefault();
+    mostrar(link.dataset.guia, { rolarPara: true });
+  });
+
+  window.addEventListener('hashchange', () => {
+    const id = window.location.hash.slice(1);
+    if (ids.includes(id)) mostrar(id, { rolarPara: true });
+  });
+
+  const inicial = window.location.hash.slice(1);
+  mostrar(ids.includes(inicial) ? inicial : ids[0], { atualizarHash: false });
+
+  if (ids.includes(inicial)) {
+    const destino = document.getElementById(inicial);
+    const alinhar = () => destino.scrollIntoView({ block: 'start' });
+    alinhar();
+    // Reaplica depois do load para o navegador não restaurar o scroll no meio.
+    window.addEventListener('load', alinhar, { once: true });
+  }
+}
+
 function iniciarPagina() {
   carregarDadosGitHub();
+  iniciarGuiaInstalacao();
 
   if (detectarTV()) {
     document.documentElement.classList.add('tv-mode');
+    // Paradas de leitura evitam saltar instruções longas ao navegar com o controle.
+    document.querySelectorAll('.guia p, .guia li, .guia pre, .guia dd').forEach(elemento => {
+      elemento.tabIndex = 0;
+    });
     const dicaTV = document.getElementById('tv-navigation-hint');
     if (dicaTV) dicaTV.hidden = false;
     document.addEventListener('keydown', navegarComSetas);

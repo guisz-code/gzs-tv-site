@@ -2,8 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://guisz-code.github.io/gzs-tv-site/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://guisz-code.github.io/gzs-tv-site/instalar.html</loc>
+    <lastmod>2026-11-12</lastmod>
   </url>
 </urlset>

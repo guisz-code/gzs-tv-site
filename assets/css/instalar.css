@@ -1,0 +1,604 @@
+/* ============================================================
+   GSZ TV — Página de instalação
+   Guia por caminhos, passos curtos e leitura confortável na TV.
+   ============================================================ */
+
+.guia {
+  max-width: 1020px;
+  padding: 3.5rem 1.5rem 5rem;
+}
+
+/* Mantém os títulos visíveis abaixo da navbar ao trocar de caminho. */
+html {
+  scroll-padding-top: 100px;
+}
+
+/* ===== Abertura ===== */
+.guia-abertura {
+  padding-bottom: 1rem;
+}
+
+.guia-eyebrow {
+  display: block;
+  color: #8fd2ff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.guia h1 {
+  margin: 0.9rem 0 1.2rem;
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.guia h1 span {
+  color: #73c6ff;
+}
+
+.guia-sub {
+  max-width: 620px;
+  margin-bottom: 2rem;
+  color: #c4d3e3;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+/* ===== Passo 1: baixar ===== */
+.guia-baixar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem 2rem;
+  align-items: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(13, 31, 52, 0.95), rgba(6, 15, 27, 0.95));
+  border: 1px solid #29425f;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+}
+
+.guia-baixar-texto {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.guia-baixar-texto strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #f3f9ff;
+}
+
+.guia-baixar-texto p {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  color: #a9bdd2;
+}
+
+.guia-numero {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: inline-grid;
+  place-items: center;
+  background: rgba(35, 145, 255, 0.18);
+  border: 1px solid rgba(85, 186, 255, 0.5);
+  color: #9fdcff;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.guia-baixar-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.guia-baixar-acoes .btn {
+  white-space: nowrap;
+}
+
+.guia-baixar-nota {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(41, 66, 95, 0.65);
+  font-size: 0.84rem;
+  color: #93a7bb;
+}
+
+.guia-baixar-nota + .guia-baixar-nota {
+  margin-top: -0.6rem;
+  padding-top: 0;
+  border-top: 0;
+}
+
+/* ===== Passo 2: escolher caminho ===== */
+.guia-escolha {
+  margin: 3rem 0 1.5rem;
+  scroll-margin-top: 0;
+}
+
+.guia-escolha h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.25rem;
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+
+.guia-metodos {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.metodo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1.1rem 1rem;
+  background: rgba(11, 24, 40, 0.8);
+  border: 1px solid #253d57;
+  border-radius: 16px;
+  color: #eaf4ff;
+  transition: var(--transicao);
+}
+
+.metodo:hover {
+  border-color: #4aa7f0;
+  background: rgba(17, 38, 62, 0.92);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.metodo[aria-current="true"] {
+  border-color: #55baff;
+  background: linear-gradient(150deg, rgba(17, 62, 105, 0.9), rgba(9, 27, 48, 0.9));
+  box-shadow: 0 0 0 1px rgba(85, 186, 255, 0.35), 0 14px 30px rgba(0, 80, 160, 0.25);
+}
+
+.metodo-icone {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.metodo-texto {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.metodo-texto strong {
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+.metodo-texto small {
+  color: #93a9c0;
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.metodo-seta {
+  color: #62bfff;
+  font-size: 1rem;
+}
+
+.guia-ajuda-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.guia-ajuda-cards a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  border: 1px dashed #34506d;
+  border-radius: 999px;
+  color: #bfd6ea;
+  font-size: 0.86rem;
+}
+
+.guia-ajuda-cards a:hover {
+  border-color: #55baff;
+  color: #eaf7ff;
+}
+
+/* ===== Painéis de cada caminho ===== */
+.guia-painel {
+  margin-top: 1.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(13, 28, 48, 0.94), rgba(5, 13, 24, 0.94));
+  border: 1px solid #263d58;
+  border-radius: 22px;
+  scroll-margin-top: 0;
+}
+
+.guia-painel:focus {
+  outline: none;
+}
+
+.guia-painel h2:focus {
+  outline: none;
+}
+
+.guia-painel-topo {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 1.35rem;
+  border-bottom: 1px solid rgba(38, 61, 88, 0.7);
+}
+
+.guia-painel-topo p {
+  margin: 0.55rem 0 0;
+  max-width: 560px;
+  color: #b6c8d9;
+  line-height: 1.7;
+}
+
+.guia-painel h2 {
+  margin: 0.55rem 0 0;
+  font-size: clamp(1.45rem, 3.2vw, 2rem);
+  line-height: 1.25;
+}
+
+.guia h3 {
+  font-size: 1.15rem;
+}
+
+.guia-subtitulo {
+  margin: 2rem 0 0.5rem;
+  color: #eaf5ff;
+}
+
+.guia-trocar {
+  flex-shrink: 0;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid #34506d;
+  border-radius: 999px;
+  color: #a9c6dd;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.guia-requisitos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  list-style: none;
+  margin: 0.9rem 0 0;
+  padding: 0;
+}
+
+.guia-requisitos li {
+  padding: 0.3rem 0.7rem;
+  background: rgba(35, 145, 255, 0.08);
+  border: 1px solid rgba(85, 186, 255, 0.22);
+  border-radius: 999px;
+  color: #a4c6df;
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.guia-trocar:hover {
+  border-color: #55baff;
+  color: #eaf7ff;
+}
+
+/* ===== Passos numerados ===== */
+.guia-passos {
+  list-style: none;
+  counter-reset: passo;
+  margin: 1.25rem 0;
+  padding: 0;
+}
+
+.guia-passos li {
+  counter-increment: passo;
+  position: relative;
+  padding-left: 2.7rem;
+  margin: 0.95rem 0;
+  color: #d3e1ef;
+  line-height: 1.75;
+}
+
+.guia-passos li::before {
+  content: counter(passo);
+  position: absolute;
+  left: 0;
+  top: 0.12rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(35, 145, 255, 0.14);
+  border: 1px solid rgba(85, 186, 255, 0.45);
+  color: #96d8ff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.guia-passos li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 0.84rem;
+  top: 1.95rem;
+  bottom: -1rem;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(58, 110, 158, 0.6), transparent);
+}
+
+.guia-passos strong {
+  color: #f1f8ff;
+}
+
+.guia-passos small {
+  color: #9fb4c9;
+}
+
+/* ===== Opções dentro de um caminho ===== */
+.guia-opcao {
+  margin-top: 1rem;
+  border: 1px solid #28425e;
+  border-radius: 14px;
+  background: rgba(5, 14, 26, 0.6);
+  overflow: hidden;
+}
+
+.guia-opcao summary,
+.guia-problema summary {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.15rem;
+  cursor: pointer;
+  list-style: none;
+  color: #eaf5ff;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.guia-opcao summary::-webkit-details-marker,
+.guia-problema summary::-webkit-details-marker {
+  display: none;
+}
+
+.guia-opcao summary span,
+.guia-problema summary {
+  flex: 1;
+}
+
+.guia-opcao summary small {
+  flex-shrink: 0;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(35, 145, 255, 0.14);
+  border: 1px solid rgba(85, 186, 255, 0.3);
+  color: #9fd6ff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.guia-opcao summary::after,
+.guia-problema summary::after {
+  content: "+";
+  flex-shrink: 0;
+  color: #6fc5ff;
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.guia-opcao[open] summary::after,
+.guia-problema[open] summary::after {
+  content: "−";
+}
+
+.guia-opcao[open] summary {
+  border-bottom: 1px solid rgba(40, 66, 94, 0.8);
+}
+
+.guia-opcao > :not(summary) {
+  margin-left: 1.15rem;
+  margin-right: 1.15rem;
+}
+
+.guia-opcao > :last-child {
+  margin-bottom: 1.1rem;
+}
+
+.guia-opcao summary:hover,
+.guia-problema summary:hover {
+  color: #8fd4ff;
+}
+
+/* ===== Problemas ===== */
+.guia-problema {
+  margin-top: 0.7rem;
+  border: 1px solid #28425e;
+  border-radius: 14px;
+  background: rgba(5, 14, 26, 0.6);
+  overflow: hidden;
+}
+
+.guia-problema[open] summary {
+  border-bottom: 1px solid rgba(40, 66, 94, 0.8);
+}
+
+.guia-problema p {
+  margin: 0 1.15rem 1.1rem;
+  color: #c2d3e3;
+  line-height: 1.75;
+}
+
+/* ===== Avisos, dicas e textos auxiliares ===== */
+.guia p {
+  line-height: 1.75;
+}
+
+.guia-antes,
+.guia-painel > p {
+  margin: 1rem 0;
+  color: #c2d3e3;
+}
+
+.guia-antes a,
+.guia-painel > p a,
+.guia-dica a,
+.guia-atencao a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.guia-dica,
+.guia-atencao {
+  margin: 1.25rem 0;
+  padding: 0.9rem 1.1rem;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #cfe0ee;
+}
+
+.guia-dica {
+  background: rgba(35, 145, 255, 0.09);
+  border-left: 3px solid #3ea7f5;
+}
+
+.guia-atencao {
+  background: rgba(255, 181, 71, 0.08);
+  border-left: 3px solid #e0a33f;
+}
+
+.guia-dica strong,
+.guia-atencao strong {
+  color: #f0f7ff;
+}
+
+/* ===== Código ===== */
+.guia pre {
+  margin: 1rem 0;
+  padding: 0.95rem 1.1rem;
+  background: #020813;
+  border: 1px solid #28425e;
+  border-radius: 12px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+
+.guia code {
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.92em;
+  color: #a6daff;
+}
+
+.guia-baixar-texto code {
+  padding: 0.1rem 0.35rem;
+  background: rgba(35, 145, 255, 0.12);
+  border-radius: 5px;
+}
+
+/* ===== Links finais ===== */
+.guia-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(38, 61, 88, 0.7);
+}
+
+.guia-links a {
+  padding: 0.35rem 0;
+  color: #8fd2ff;
+}
+
+/* ===== Foco (teclado e controle de TV) ===== */
+.guia a:focus-visible,
+.guia summary:focus-visible,
+.guia-passos li:focus-visible,
+.guia pre:focus-visible {
+  outline: 3px solid #79caff;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.tv-mode .guia-passos li:focus,
+.tv-mode .guia-painel p:focus,
+.tv-mode .guia-painel dd:focus {
+  outline: 3px solid #79caff;
+  outline-offset: 4px;
+  border-radius: 8px;
+  background: rgba(35, 145, 255, 0.08);
+}
+
+.tv-mode .guia {
+  padding-bottom: 6rem;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 900px) {
+  .guia-metodos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .guia-baixar {
+    grid-template-columns: 1fr;
+  }
+  .guia-baixar-acoes {
+    justify-content: stretch;
+  }
+  .guia-baixar-acoes .btn {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+@media (max-width: 620px) {
+  .guia {
+    padding: 2.25rem 1.1rem 4rem;
+  }
+  .guia-painel {
+    padding: 1.25rem;
+  }
+  .guia-painel-topo {
+    flex-direction: column;
+  }
+  .guia-trocar {
+    align-self: flex-start;
+  }
+  .guia-baixar-acoes {
+    flex-direction: column;
+  }
+  .guia-metodos {
+    grid-template-columns: 1fr;
+  }
+  .guia-opcao summary small {
+    display: none;
+  }
+  .pagina-instalacao .nav-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  .pagina-instalacao .navbar .btn {
+    width: auto;
+    font-size: 0.85rem;
+    padding: 0.7rem;
+  }
+}
