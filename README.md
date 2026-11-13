@@ -19,6 +19,14 @@
 
 ---
 
+### Publicação e sitemap
+
+Ao publicar mudanças relevantes no conteúdo de uma página, atualize o `lastmod`
+correspondente em `sitemap.xml` com a data real da alteração (`AAAA-MM-DD`).
+Não altere a data de páginas que não mudaram nem apenas por fazer um novo push.
+O guia usa schema `HowTo` para descrever o tutorial; o Google não oferece mais
+resultados enriquecidos desse tipo.
+
 <div align="center">
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
