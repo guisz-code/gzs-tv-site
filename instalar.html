@@ -38,6 +38,17 @@
           <a class="btn outline" id="releases" href="https://github.com/guisz-code/GSZ-TV/releases/latest" aria-describedby="releases-info">GitHub Releases ↗</a>
         </div>
         <p class="guia-baixar-nota" id="direto-info">O download começa na hora. O navegador pode pedir confirmação.</p>
+        <div class="guia-baixar-nota" id="dados-apk">
+          <p id="release-resumo">Dados da última versão oficial</p>
+          <p id="apk-tamanho">Tamanho e SHA-256 disponíveis no GitHub Releases.</p>
+          <div id="apk-hash" hidden>
+            <p>SHA-256: <code id="apk-sha256" style="overflow-wrap: anywhere;"></code></p>
+            <button class="btn outline" id="copiar-sha256" type="button">Copiar SHA-256</button>
+            <p>Compare este código com o SHA-256 do arquivo baixado para conferir se são iguais. Isso verifica a integridade, não garante a segurança do aplicativo.</p>
+          </div>
+          <p id="apk-hash-status" role="status"></p>
+          <p><strong>É seguro?</strong> Confira o <a href="https://github.com/guisz-code/GSZ-TV">código-fonte público</a> e baixe pelo <a href="https://github.com/guisz-code/GSZ-TV/releases/latest">Releases oficial</a>. Código aberto permite inspeção, mas não é garantia de ausência de falhas.</p>
+        </div>
         <p class="guia-baixar-nota" id="releases-info">Alternativa: abre a página de releases no GitHub. Em <strong>Assets</strong>, escolha <strong>GSZTV.apk</strong>.</p>
       </div>
     </header>
