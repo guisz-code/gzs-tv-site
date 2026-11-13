@@ -94,7 +94,7 @@ function alternarTema() {
   document.querySelectorAll('[data-indicador-tema]').forEach(indicador => {
     indicador.classList.toggle('ativo', indicador.dataset.indicadorTema === tema);
   });
-  botao.setAttribute('aria-label', 'Tema atual: ' + nomesTema[tema] + '. Clique para alternar o tema');
+  botao.setAttribute('aria-label', 'GSZ: tema atual ' + nomesTema[tema] + '. Clique para alternar o tema');
   botao.classList.remove('animando');
   void botao.offsetWidth;
   botao.classList.add('animando');
