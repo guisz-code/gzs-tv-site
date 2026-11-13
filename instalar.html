@@ -105,6 +105,7 @@
         <li><strong>Confirme “Instalar”</strong> e abra o GSZ TV.</li>
       </ol>
       <div class="guia-dica"><strong>Dica:</strong> esse é o caminho mais simples. Se o navegador da TV falhar no download, tente um dos outros três caminhos.</div>
+      <p class="guia-links"><a href="#problemas" data-guia="problemas">Não funcionou? Ver problemas comuns →</a></p>
     </section>
 
     <section class="guia-painel" id="pelo-celular" data-painel tabindex="-1" aria-labelledby="titulo-pelo-celular" hidden>
@@ -182,6 +183,7 @@ adb devices</code></pre>
         </ol>
         <div class="guia-atencao"><strong>Se o cliente não encontrar a TV,</strong> o modelo provavelmente não aceita ADB por USB. Use o envio pela rede ou o pendrive.</div>
       </details>
+      <p class="guia-links"><a href="#problemas" data-guia="problemas">Não funcionou? Ver problemas comuns →</a></p>
     </section>
 
     <section class="guia-painel" id="pelo-pc" data-painel tabindex="-1" aria-labelledby="titulo-pelo-pc" hidden>
@@ -255,6 +257,7 @@ adb devices</code></pre>
       </details>
 
       <div class="guia-dica"><strong>Mais de um aparelho conectado?</strong> Use <code>.\adb -s SERIAL install -r "GSZTV.apk"</code>, trocando SERIAL pelo código mostrado em <code>.\adb devices</code>. Para encerrar conexões de rede, rode <code>.\adb disconnect</code>. Isso não desativa a depuração na TV.</div>
+      <p class="guia-links"><a href="#problemas" data-guia="problemas">Não funcionou? Ver problemas comuns →</a></p>
     </section>
 
     <section class="guia-painel" id="pendrive" data-painel tabindex="-1" aria-labelledby="titulo-pendrive" hidden>
@@ -279,6 +282,7 @@ adb devices</code></pre>
         <li><strong>Autorize apps desconhecidos</strong> para o gerenciador quando o aviso aparecer, volte ao arquivo e confirme <strong>Instalar</strong>.</li>
       </ol>
       <div class="guia-dica"><strong>Sem mistério:</strong> este caminho não precisa de ADB, modo desenvolvedor nem depuração. A porta de pendrive é diferente de uma porta de dados ADB.</div>
+      <p class="guia-links"><a href="#problemas" data-guia="problemas">Não funcionou? Ver problemas comuns →</a></p>
     </section>
 
     <section class="guia-painel" id="preparar-adb" data-painel tabindex="-1" aria-labelledby="titulo-preparar-adb" hidden>
@@ -338,10 +342,12 @@ adb devices</code></pre>
       <p class="guia-antes">Para atualizar, instale o APK novo por cima do atual, sem desinstalar. Dentro do GSZ TV, consulte também <strong>Configurações → Atualizações</strong>.</p>
       <div class="guia-links"><a href="#direto">↑ Baixar o APK</a><a href="index.html">Voltar ao site</a><a href="https://developer.android.com/tools/adb?hl=pt-br">Documentação oficial do ADB ↗</a></div>
     </section>
+    <p class="guia-links"><a href="#downloads">↑ Voltar ao topo</a></p>
   </main>
 
   <footer class="footer"><div class="container"><p>GSZ TV · Guia de instalação para Android TV e projetores Android.</p><a href="index.html">Página inicial</a></div></footer>
   <div id="tv-navigation-hint" class="tv-navigation-hint" role="status" hidden>Use as setas para navegar e OK para selecionar</div>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/guia.js"></script>
 </body>
 </html>
