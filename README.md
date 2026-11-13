@@ -19,6 +19,14 @@
 
 ---
 
+### Publicação e sitemap
+
+Ao publicar mudanças relevantes no conteúdo de uma página, atualize o `lastmod`
+correspondente em `sitemap.xml` com a data real da alteração (`AAAA-MM-DD`).
+Não altere a data de páginas que não mudaram nem apenas por fazer um novo push.
+O guia usa schema `HowTo` para descrever o tutorial; o Google não oferece mais
+resultados enriquecidos desse tipo.
+
 <div align="center">
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
@@ -34,7 +42,7 @@
 ## 🖼️ Preview do site
 
 <div align="center">
-  <img src="assets/img/site-homepage-v2.png" alt="Página inicial do site GSZ TV — menu Sobre, Recursos, Baixar, Galeria, Instalação e botão Baixar APK" width="800">
+  <a href="https://guisz-code.github.io/gzs-tv-site/">Ver o site GSZ TV atualizado</a>
 </div>
 
 

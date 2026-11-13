@@ -735,8 +735,8 @@ img {
   line-height: 1.6;
 }
 
-.footer-links h4,
-.footer-contato h4 {
+.footer-links h2,
+.footer-contato h2 {
   font-size: 1rem;
   margin-bottom: 1rem;
   color: var(--branco);

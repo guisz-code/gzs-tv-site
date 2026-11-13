@@ -3,24 +3,51 @@ async function carregarDadosGitHub() {
   const versao = document.getElementById('versao-launcher');
   const avatar = document.getElementById('avatar-github');
 
-  if (!versao || !avatar) return;
-
-  avatar.addEventListener('error', () => { avatar.hidden = true; }, { once: true });
+  const dados = document.getElementById('dados-apk');
+  if (!versao && !avatar && !dados) return;
+  if (avatar) avatar.addEventListener('error', () => { avatar.hidden = true; }, { once: true });
 
   try {
     const resposta = await fetch('https://api.github.com/repos/guisz-code/GSZ-TV/releases/latest', { cache: 'no-store' });
     if (resposta.ok) {
       const release = await resposta.json();
-      if (release.tag_name) {
+      if (release.tag_name && versao) {
         versao.textContent = release.tag_name;
         versao.href = release.html_url;
         versao.setAttribute('aria-label', 'Ver versão ' + release.tag_name + ' no GitHub');
       }
+      if (release.published_at) {
+        const data = new Date(release.published_at);
+        if (!Number.isNaN(data.getTime())) {
+          const texto = ' · Publicada em ' + data.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
+          if (versao) versao.after(document.createTextNode(texto));
+          const resumo = document.getElementById('release-resumo');
+          if (resumo) resumo.textContent = (release.tag_name || 'Última versão') + texto;
+        }
+      }
+      if (dados) {
+        const apk = (release.assets || []).find(asset => asset.name === 'GSZTV.apk');
+        const tamanho = document.getElementById('apk-tamanho');
+        tamanho.textContent = apk && Number.isFinite(apk.size)
+          ? 'Tamanho: ' + (apk.size / 1048576).toLocaleString('pt-BR', { maximumFractionDigits: 2 }) + ' MiB'
+          : 'Tamanho indisponível. Consulte o Releases oficial.';
+        if (apk && /^sha256:[a-f0-9]{64}$/i.test(apk.digest || '')) {
+          const hash = document.getElementById('apk-sha256');
+          hash.textContent = apk.digest.slice(7);
+          document.getElementById('apk-hash').hidden = false;
+        } else {
+          document.getElementById('apk-hash-status').textContent = 'SHA-256 não informado pelo GitHub para este arquivo.';
+        }
+      }
+    } else {
+      throw new Error('Release indisponível');
     }
   } catch (erro) {
+    if (dados) document.getElementById('apk-tamanho').textContent = 'Não foi possível carregar os dados do APK. Consulte o Releases oficial.';
     // Mantém o link para a página de releases como alternativa.
   }
 
+  if (!avatar) return;
   try {
     const resposta = await fetch('https://api.github.com/users/guisz-code', { cache: 'no-store' });
     if (resposta.ok) {
@@ -29,6 +56,15 @@ async function carregarDadosGitHub() {
     }
   } catch (erro) {
     // A URL pública do avatar definida no HTML continua como alternativa.
+  }
+}
+
+async function copiarTexto(texto, status) {
+  try {
+    await navigator.clipboard.writeText(texto);
+    status.textContent = 'Copiado!';
+  } catch (erro) {
+    status.textContent = 'Não foi possível copiar neste navegador. Selecione o texto e copie manualmente.';
   }
 }
 
@@ -188,6 +224,10 @@ function iniciarGuiaInstalacao() {
 
 function iniciarPagina() {
   carregarDadosGitHub();
+  const copiarHash = document.getElementById('copiar-sha256');
+  if (copiarHash) copiarHash.addEventListener('click', () => {
+    copiarTexto(document.getElementById('apk-sha256').textContent, document.getElementById('apk-hash-status'));
+  });
   iniciarGuiaInstalacao();
 
   if (detectarTV()) {
