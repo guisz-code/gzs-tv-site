@@ -42,7 +42,7 @@ resultados enriquecidos desse tipo.
 ## 🖼️ Preview do site
 
 <div align="center">
-  <img src="assets/img/site-homepage-v2.png" alt="Página inicial do site GSZ TV — menu Sobre, Recursos, Baixar, Galeria, Instalação e botão Baixar APK" width="800">
+  <a href="https://guisz-code.github.io/gzs-tv-site/">Ver o site GSZ TV atualizado</a>
 </div>
 
 
